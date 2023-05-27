@@ -2,10 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .border-all {
+    @apply border border-slate-800;
+  }
+  .border-bottom {
+    @apply border-b border-slate-700;
+  }
+  .outline-all {
+    @apply outline outline-slate-700;
+  }
+
+  .button {
+    @apply cursor-pointer px-3.5 py-2 bg-slate-700 text-accent rounded-md hover:brightness-125;
+  }
+  .button-sm {
+    @apply button py-1.5 px-3 text-xs rounded-full;
+  }
+
+  .nav-indicator {
+    @apply w-8 h-px bg-slate-600 transition-all duration-300;
+  }
+
+  .flexCenter {
+    @apply flex items-center justify-center;
+  }
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+
+  --primary: "#0F172A";
+  --accent: "#53D1C9";
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,10 +48,23 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+}
+
+h1,
+h2 {
+  @apply text-2xl text-slate-100 font-bold antialiased;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  @apply text-xl text-slate-200 font-bold antialiased;
+}
+
+p,
+span,
+strong,
+em {
+  @apply text-sm text-slate-400 antialiased;
 }
