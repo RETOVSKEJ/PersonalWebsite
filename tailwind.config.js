@@ -17,6 +17,7 @@ module.exports = {
         primary: "#0F172A",
         accent: "#53D1C9",
       },
+      spacing: {},
     },
   },
   plugins: [],

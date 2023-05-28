@@ -25,8 +25,8 @@ const securityHeaders = [
 
 const nextConfig = {
   env: {
-    API_URL: process.env.API_URL,
-    API_KEY: process.env.API_KEY,
+    EMAIL: process.env.EMAIL,
+    EMAIL_PASS: process.env.EMAIL_PASS,
   },
   async headers() {
     return [

@@ -1,6 +1,20 @@
-import { motion } from "framer-motion";
+import { motion, useDragControls } from "framer-motion";
+import { AiOutlineSend, AiOutlineClose } from "react-icons/ai";
+import { FormEvent, useEffect, useTransition, useState } from "react";
 
-export default function Modal({ handleClose }: { handleClose: Function }) {
+type FormData = {
+  name: string;
+  email: string;
+  message: string;
+};
+
+export default function Modal({
+  handleClose,
+  setStatus,
+}: {
+  handleClose: Function;
+  setStatus: Function;
+}) {
   const dropIn = {
     hidden: { y: "-100vh", opacity: 0 },
     visible: {
@@ -19,15 +33,15 @@ export default function Modal({ handleClose }: { handleClose: Function }) {
   return (
     <motion.div
       id="backdrop"
-      className=" bg-black/25 fixed top-0 left-0 w-full h-full z-10"
+      className=" bg-black/25 backdrop-blur fixed top-0 left-0 w-full h-full z-10"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      onClick={() => handleClose()}
+      onPointerDown={() => handleClose()}
     >
       <motion.div
         id="modal"
-        className="modal bg-primary/50 backdrop-blur-sm shadow-xl border-all [&:backdrop]:bg-white fixed inset-0 m-auto h-[50%] p-8 w-2/3 h-100 rounded-3xl"
+        className="modal cursor-grab bg-primary/50 backdrop-blur-sm shadow-xl border-all fixed z-50 inset-0 h-fit m-auto p-8 w-2/3 rounded-3xl"
         drag
         dragConstraints={{
           top: -225,
@@ -36,28 +50,133 @@ export default function Modal({ handleClose }: { handleClose: Function }) {
           left: -225,
         }}
         dragElastic={0.5}
-        onClick={(e) => e.stopPropagation()}
+        onPointerDown={(e) => e.stopPropagation()}
         variants={dropIn}
         initial="hidden"
         animate="visible"
         exit="exit"
       >
-        <ContactForm handleClose={handleClose} />
+        <ContactForm handleClose={handleClose} setStatus={setStatus} />
       </motion.div>
     </motion.div>
   );
 }
 
-function ContactForm({ handleClose }: { handleClose: Function }) {
+const formInitialDetails: FormData = {
+  name: "",
+  email: "",
+  message: "",
+};
+
+function ContactForm({
+  handleClose,
+  setStatus,
+}: {
+  handleClose: Function;
+  setStatus: Function;
+}) {
+  const [formDetails, setFormDetails] = useState<FormData>(formInitialDetails);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const onFormUpdate = (category: keyof FormData, value: any) => {
+    setFormDetails({
+      ...formDetails,
+      [category]: value,
+    });
+  };
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsLoading(true);
+    let response = await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+      },
+      body: JSON.stringify(formDetails),
+    });
+    let result = await response.json();
+
+    // reset form
+    if (result.success) {
+      setFormDetails(formInitialDetails);
+      handleClose();
+      setStatus({
+        success: true,
+        message:
+          "Dziękuje za wiadomość! Postaram się odpowiedzieć na nią jak najszybciej.",
+      });
+    } else {
+      setStatus({
+        success: false,
+        message: "Something went wrong, please try again later.",
+      });
+    }
+    setIsLoading(false);
+  };
+
   return (
-    <div>
-      <h2 className="text-3xl text-accent text-center">Contact Me</h2>
+    <>
+      <h2 className="text-3xl text-accent text-center mb-4">
+        Send me a message!
+      </h2>
       <button
         className="text-accent border border-slate-600 fixed top-0 right-0 rounded-md p-2 m-4"
         onClick={() => handleClose()}
       >
-        X
+        <AiOutlineClose />
       </button>
-    </div>
+      <form className="flex flex-col w-full gap-4" onSubmit={handleSubmit}>
+        <motion.div
+          className="cursor-default flex flex-row gap-8"
+          onPointerDownCapture={(e) => e.stopPropagation()}
+        >
+          <input
+            className="input w-full"
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Your Name"
+            draggable="false"
+            required
+            value={formDetails.name}
+            onChange={(e) => onFormUpdate("name", e.target.value)}
+          />
+          <input
+            className="input w-full"
+            type="email"
+            name="email"
+            id="email"
+            draggable="false"
+            required
+            placeholder="Your Email"
+            value={formDetails.email}
+            onChange={(e) => onFormUpdate("email", e.target.value)}
+          />
+        </motion.div>
+        <motion.div
+          className="cursor-default relative"
+          onPointerDownCapture={(e) => e.stopPropagation()}
+        >
+          <textarea
+            className="input resize-none w-full pb-16"
+            name="message"
+            id="message"
+            draggable="false"
+            rows={5}
+            placeholder="Message"
+            value={formDetails.message}
+            onChange={(e) => onFormUpdate("message", e.target.value)}
+            required
+          ></textarea>
+          <div className="rounded-tl-lg absolute bottom-0 right-0 mb-1 bg-primary/25 p-4">
+            <button className="button flexCenter gap-1">
+              <AiOutlineSend />
+              {isLoading ? "Sending..." : "Send"}
+            </button>
+          </div>
+        </motion.div>
+      </form>
+    </>
   );
 }

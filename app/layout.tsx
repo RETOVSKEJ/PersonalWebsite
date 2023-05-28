@@ -19,9 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} border-box bg-primary dark:bg-white`}
+        className={`${inter.className} scroll-smooth border-box bg-primary dark:bg-white`}
       >
-        <div className="flex w-full gap-8 p-6 px-8  fixed justify-end items-center">
+        <div className="flex top-0 w-full gap-8 p-6 px-8 z-50 fixed justify-end items-center">
           <ThemePicker />
           <LanguagePicker />
         </div>

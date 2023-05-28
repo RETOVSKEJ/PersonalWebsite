@@ -3,6 +3,7 @@ import React from "react";
 export default function AboutMe() {
   return (
     <div id="about">
+      <h2 className="text-3xl text-slate-300 text-center mb-4">About Me</h2>
       <p>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi beatae
         facilis itaque, cumque id doloremque repellat minus molestiae suscipit.

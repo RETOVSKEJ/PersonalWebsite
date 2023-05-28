@@ -9,7 +9,7 @@ const useDarkMode = () => {
 
   useEffect(() => {
     const className = "dark";
-    const body = window.document.body;
+    const body = document.body;
 
     isEnabled
       ? body.classList.add(className)

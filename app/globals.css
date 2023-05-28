@@ -14,10 +14,13 @@
   }
 
   .button {
-    @apply cursor-pointer px-3.5 py-2 bg-slate-700 text-accent rounded-md hover:brightness-125;
+    @apply cursor-pointer shadow px-3.5 py-2 bg-slate-700 text-accent rounded-md hover:brightness-125;
   }
   .button-sm {
     @apply button py-1.5 px-3 text-xs rounded-full;
+  }
+  .button-transparent {
+    @apply py-2 px-4 rounded-md shadow-md text-slate-300 border border-slate-700 bg-slate-700/20 hover:brightness-150 active:brightness-200;
   }
 
   .nav-indicator {
@@ -26,6 +29,13 @@
 
   .flexCenter {
     @apply flex items-center justify-center;
+  }
+
+  .input {
+    @apply p-3 text-slate-300 bg-slate-700/80 shadow-md outline-none rounded-md;
+  }
+  .opacity-full {
+    opacity: 1 !important;
   }
 }
 
@@ -67,4 +77,9 @@ span,
 strong,
 em {
   @apply text-sm text-slate-400 antialiased;
+}
+
+html,
+body {
+  scroll-behavior: smooth !important;
 }
