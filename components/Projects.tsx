@@ -97,7 +97,7 @@ export function Project({
         <div className="w-[66%] flex flex-col gap-2">
           <h5 className="text-base flex items-center gap-1">
             {name}{" "}
-            <span className="text-base self-end group-hover:-translate-y-1 group-hover:translate-x-[2px] transition-all duration-300  pb-[2px] ">
+            <span className="text-base self-end group-hover:text-accent group-hover:-translate-y-1 group-hover:translate-x-[2px] transition-all duration-300  pb-[2px] ">
               <FiArrowUpRight />
             </span>
           </h5>

@@ -20,7 +20,7 @@
     @apply button py-1.5 px-3 text-xs rounded-full;
   }
   .button-transparent {
-    @apply py-2 px-4 rounded-md shadow-md text-slate-300 border border-slate-700 bg-slate-700/20 hover:brightness-150 active:brightness-200;
+    @apply text-accent py-2 px-4 rounded-md shadow-md border border-slate-700 bg-slate-700/20 hover:brightness-150 active:brightness-200;
   }
 
   .nav-indicator {

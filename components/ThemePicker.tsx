@@ -26,12 +26,12 @@ export default function ThemePicker() {
 
   const handleMode = () => setDarkTheme(!darkTheme);
   return (
-    <div onClick={handleMode}>
+    <button onClick={handleMode}>
       {darkTheme ? (
         <FaSun size="24" className="top-navigation-icon" />
       ) : (
         <FaMoon size="24" className="top-navigation-icon" />
       )}
-    </div>
+    </button>
   );
 }

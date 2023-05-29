@@ -21,11 +21,8 @@ export default function RootLayout({
       <body
         className={`${inter.className} bg-primary scroll-smooth border-box selection:bg-accent selection:text-slate-600`}
       >
-        <div className="flex top-0 w-full gap-8 p-6 px-8 z-50 fixed justify-end items-center">
-          <ThemePicker />
-          <LanguagePicker />
-        </div>
-        <div>{children}</div>
+        <Navbar />
+        {children}
       </body>
     </html>
   );

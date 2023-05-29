@@ -100,7 +100,7 @@ export default function ContactMe() {
             rel="noopener"
           >
             <span>Sprawdz mój profil</span>{" "}
-            <FiArrowUpRight className="text-slate-400 text-md" />
+            <FiArrowUpRight className="text-accent text-md" />
           </Link>
         </div>
       </div>
