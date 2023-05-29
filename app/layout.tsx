@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} bg-primary scroll-smooth border-box selection:bg-accent selection:text-slate-600`}
+        className={`${inter.className}  scroll-smooth border-box selection:bg-accent selection:text-slate-600`}
       >
         <Navbar />
         {children}

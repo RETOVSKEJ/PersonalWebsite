@@ -62,7 +62,7 @@ export default function ContactMe() {
             target="_blank"
             rel="noopener"
           >
-            <span>Download</span> <BiDownload />
+            <span>Download</span> <BiDownload className="text-accent text-md" />
           </Link>
         </div>
         <div className="flex gap-4 mediaQuery">
@@ -73,7 +73,7 @@ export default function ContactMe() {
             target="_blank"
             rel="noopener"
           >
-            <span>Download</span> <BiDownload />
+            <span>Download</span> <BiDownload className="text-accent text-md" />
           </Link>
         </div>
         <div className="flex gap-4 mediaQuery">
@@ -107,7 +107,7 @@ export default function ContactMe() {
 
       <div className="flex justify-center">
         <button
-          className="button-transparent p-6 sm:p-4 sm:px-5 md:p-6"
+          className="button-transparent m-2 p-6 sm:p-4 sm:px-5 md:p-6"
           id="contact-btn"
           onClick={() => setModalOpen(true)}
         >

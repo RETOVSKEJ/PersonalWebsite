@@ -11,12 +11,14 @@ export default function Toast({
   return (
     <motion.div
       id="toast"
-      className="flexCenter gap-3 z-[100] fixed bottom-4 right-4 p-6  rounded-lg bg-black/50 text-slate-300"
+      className="flexCenter gap-3 z-[100] fixed bottom-4 right-4 p-6  rounded-lg bg-black/30 dark:bg-black/50 text-slate-300"
       initial={{ bottom: "-2rem", opacity: 0 }}
       animate={{ bottom: "1rem", opacity: 1 }}
       exit={{ bottom: "-2rem", opacity: 0 }}
     >
-      <p className="text-center">{message} </p>
+      <p className="text-center dark:text-slate-700 text-slate-200">
+        {message}{" "}
+      </p>
       <button
         className="text-accent hover:brightness-150"
         onClick={() => handleClose()}

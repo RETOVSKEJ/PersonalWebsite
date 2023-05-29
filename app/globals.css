@@ -14,13 +14,13 @@
   }
 
   .button {
-    @apply cursor-pointer shadow px-3.5 py-2 bg-slate-700 text-accent rounded-md hover:brightness-125;
+    @apply cursor-pointer shadow px-3.5 py-2 bg-slate-700 text-accent rounded-md hover:brightness-110 dark:hover:brightness-125;
   }
   .button-sm {
-    @apply button py-1.5 px-3 text-xs rounded-full;
+    @apply button py-1.5 px-3 text-xs rounded-full bg-slate-200 dark:bg-slate-700;
   }
   .button-transparent {
-    @apply text-accent py-2 px-4 rounded-md shadow-md border border-slate-700 bg-slate-700/20 hover:brightness-150 active:brightness-200;
+    @apply text-slate-600 dark:text-slate-400 py-2 px-4 rounded-md shadow-md border border-slate-400/30 bg-white/20 dark:border-slate-700 dark:bg-slate-700/20 hover:brightness-110 active:brightness-125 dark:hover:brightness-150 dark:active:brightness-200;
   }
 
   .nav-indicator {
@@ -43,6 +43,10 @@
     opacity: 1 !important;
   }
 
+  .shadow-img {
+    box-shadow: 0 3px 15px 1px rgba(13, 25, 42, 0.4);
+  }
+
   .mobile {
     @apply sm:hidden;
   }
@@ -57,8 +61,7 @@
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 
-  --primary: "#0F172A";
-  --accent: "#53D1C9";
+  --primary: rgb(15, 23, 42);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -79,29 +82,39 @@ body {
     #132149 0%,
     #0f172a 75%
   );
+
+  --color-primary: 240 240 240;
+  --color-accent: 255 119 0;
+  --color-txt: 15 23 42; /* text-slate-900 */
+}
+
+body.dark {
+  --color-primary: 15 23 42;
+  --color-accent: 86 209 201;
+  --color-txt: 203 213 225; /* text-slate-300 */
 }
 
 h1,
 h2 {
-  @apply text-2xl text-slate-200 font-bold antialiased;
+  @apply text-2xl text-slate-700 dark:text-slate-200 font-bold antialiased;
 }
 
 h3,
 h4,
 h5,
 h6 {
-  @apply text-base md:text-lg text-slate-300 font-bold antialiased;
+  @apply text-base text-slate-700 dark:text-slate-200 md:text-lg  font-bold antialiased;
 }
 
 blockquote {
-  @apply text-slate-300 italic antialiased;
+  @apply text-slate-600 dark:text-slate-300 italic antialiased;
 }
 
 p,
 span,
 strong,
 em {
-  @apply text-sm text-slate-400 antialiased;
+  @apply text-sm antialiased;
 }
 
 html,
@@ -118,6 +131,7 @@ figcaption::after {
 }
 figcaption {
   quotes: "“" "”" "‘" "’";
+  @apply text-txt dark:text-slate-200 dark:sm:text-slate-100;
 }
 
 .hide {

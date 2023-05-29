@@ -11,11 +11,11 @@ export default function AboutMe() {
   return (
     <figure id="about" className="hide flex flex-col gap-6">
       <figcaption
-        className={`${dancingFont.className} px-1 text-5xl font-bold text-slate-200 sm:text-slate-100  text-center"`}
+        className={`${dancingFont.className}  px-1 text-5xl font-bold text-center"`}
       >
         Przekuwam swoją pasję w coś pozytywnego dla świata
       </figcaption>
-      <blockquote className="w-[90%] mx-auto text-slate-300">
+      <blockquote className="w-[90%] mx-auto">
         Jestem studentem informatyki a w przeszłości miałem przyjemność być
         profesjonalnym graczem oraz reprezentować różne organizacje na wielu
         zawodach w całym kraju. Zmieniłem profesję, bo zobaczyłem, że

@@ -122,7 +122,7 @@ function ContactForm({
         <span className="text-2xl md:text-4xl text-accent">message!</span>
       </h2>
       <button
-        className="text-accent bg-slate-800/20 border border-slate-700 fixed top-0 right-0 rounded-md p-2 m-4"
+        className="text-accent bg-white/20 border-slate-300/50 dark:bg-slate-800/20 border dark:border-slate-700 fixed top-0 right-0 rounded-md p-2 m-4"
         onClick={() => handleClose()}
       >
         <AiOutlineClose />
@@ -170,8 +170,8 @@ function ContactForm({
             onChange={(e) => onFormUpdate("message", e.target.value)}
             required
           ></textarea>
-          <div className="rounded-tl-lg absolute bottom-0 right-0 mb-1 bg-primary/25 p-4">
-            <button className="button flexCenter gap-1">
+          <div className="rounded-tl-lg rounded-br-md  absolute bottom-0 right-0 m-4 bg-transparent">
+            <button className="button shadow-md dark:border dark:border-slate-700/80 dark:bg-primary/30 flexCenter gap-1">
               <AiOutlineSend />
               {isLoading ? "Sending..." : "Send"}
             </button>

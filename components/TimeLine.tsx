@@ -3,7 +3,9 @@ import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
 
 const CLASSES_TO_ADD =
-  "text-slate-100 [&>span]:bg-slate-100 [&>span]:w-16".split(" ");
+  "text-accent [&>span]:bg-accent dark:text-slate-100 dark:[&>span]:bg-slate-100 [&>span]:w-16".split(
+    " "
+  );
 console.log(CLASSES_TO_ADD);
 
 export default function TimeLine() {
@@ -107,7 +109,7 @@ export default function TimeLine() {
   }, [active]);
 
   return (
-    <nav className="hidden  sm:flex sm:flex-col gap-4 uppercase text-xs font-semibold tracking-widest text-slate-500 group [&>div:hover]:text-slate-100 [&>div:hover_span]:bg-slate-100 [&>div:hover_span]:w-16">
+    <nav className="hidden  sm:flex sm:flex-col gap-4 uppercase text-xs font-semibold tracking-widest text-slate-600 dark:text-slate-500 group [&>div:hover]:text-accent [&>div:hover_span]:bg-accent dark:[&>div:hover]:text-slate-100 dark:[&>div:hover_span]:bg-slate-100 [&>div:hover_span]:w-16">
       <div
         ref={aboutRef}
         className="relative flex items-center gap-4 cursor-pointer"

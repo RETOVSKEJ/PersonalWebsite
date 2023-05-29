@@ -9,7 +9,7 @@ import Link from "next/link";
 
 export default function Socials() {
   return (
-    <div className="justify-center lg:justify-start flex gap-4 text-slate-400 [&>a:hover]:brightness-150">
+    <div className="justify-center lg:justify-start flex gap-4 text-slate-600 dark:text-slate-400 [&>a:hover]:brightness-150">
       <Link href="https://twitter.com/RETOVSKEJ">
         <FaTwitter size="24" className="top-navigation-icon" />
       </Link>

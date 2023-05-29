@@ -6,7 +6,7 @@ import { FiArrowUpRight } from "react-icons/fi";
 
 export default function Projects() {
   return (
-    <div className="flex flex-col gap-4 [&:hover>a:not(:hover)]:opacity-50">
+    <div className="flex flex-col gap-5 [&:hover>a:not(:hover)]:opacity-50">
       <Project
         name={"TanieZarcie"}
         year={2023}
@@ -49,7 +49,7 @@ export default function Projects() {
         name={"Portfolio"}
         year={2023}
         desc={
-          "Prywatne portfolio, umożliwajace pozyskania kilku informacji o mnie, oraz kontakt"
+          "Prywatne portfolio, umożliwajace pozyskanie kilku informacji o mnie oraz kontakt"
         }
         image={FragFeed}
         technologies={[
@@ -90,19 +90,27 @@ export function Project({
       target="_blank"
       rel="noopener"
     >
-      <div className="flex gap-4 p-0 py-1 md:p-4 border border-transparent rounded-lg [&:hover>div>h5]:text-accent group  hover:border-slate-700/30 hover:bg-slate-700/30 hover:shadow-xl">
-        <div className="w-[34%]">
-          <Image width={250} height={200} src={image} alt={name} />
+      <div className="flex gap-4 p-0 py-1 md:p-4 border border-transparent rounded-lg [&:hover>div>h5]:text-accent group  hover:border-slate-400/20 hover:bg-white/20 dark:hover:border-slate-700/30 dark:hover:bg-slate-700/30 hover:shadow-lg">
+        <div className="pt-[5px] w-[34%]">
+          <Image
+            className="shadow-xl"
+            width={250}
+            height={200}
+            src={image}
+            alt={name}
+          />
         </div>
         <div className="w-[66%] flex flex-col gap-2">
           <h5 className="text-base flex items-center gap-1">
-            {name}{" "}
+            {name}
             <span className="text-base self-end group-hover:text-accent group-hover:-translate-y-1 group-hover:translate-x-[2px] transition-all duration-300  pb-[2px] ">
               <FiArrowUpRight />
             </span>
           </h5>
-          <p>{year}</p>
-          <p>{desc}</p>
+          <p className="text-slate-500 dark:text-slate-400 font-semibold">
+            {year}
+          </p>
+          <p className="text-slate-500 dark:text-slate-400">{desc}</p>
           <ul className="flex flex-wrap gap-2">
             {technologies.map((technology: string) => (
               <li className="button-sm">{technology}</li>

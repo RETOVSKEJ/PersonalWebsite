@@ -1,12 +1,13 @@
 "use client";
 import { useState } from "react";
 import ReactFlagsSelect from "react-flags-select";
+import { Pl, Gb } from "react-flags-select";
 
 export default function LanguagePicker() {
   const [selected, setSelected] = useState("PL");
   return (
     <div className="">
-      <ReactFlagsSelect
+      {/* <ReactFlagsSelect
         selected={selected}
         countries={["PL", "GB"]}
         showSecondarySelectedLabel={false}
@@ -14,7 +15,10 @@ export default function LanguagePicker() {
         showSelectedLabel={false}
         fullWidth={false}
         onSelect={(code) => setSelected(code)}
-      />
+      /> */}
+      <button>
+        <Pl fontSize={24} />
+      </button>
     </div>
   );
 }
