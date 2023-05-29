@@ -16,8 +16,8 @@ export async function POST(req: NextRequest) {
     port: 587, // port hotmaila
     secure: false, // true for 465, false for other ports
     auth: {
-      user: mojEmail, // Replace with your SMTP provider's username
-      pass: process.env.EMAIL_PASS, // Replace with your SMTP provider's password
+      user: mojEmail,
+      pass: process.env.EMAIL_PASS,
     },
   });
 

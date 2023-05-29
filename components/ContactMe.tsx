@@ -9,6 +9,7 @@ import { useState } from "react";
 import { BiCopy, BiDownload } from "react-icons/bi";
 import { GiCheckMark } from "react-icons/gi";
 import { AiOutlineSend } from "react-icons/ai";
+import { FiArrowUpRight } from "react-icons/fi";
 import { useEffectAfterMount } from "@/hooks/useEffectAfterMount";
 
 type StatusEmail = {
@@ -52,9 +53,9 @@ export default function ContactMe() {
         <span className="text-3xl text-accent">Contact Me</span> & Checkout my
         <span className="text-3xl text-accent"> Resume:</span>
       </h2>
-      <div className="flex flex-col gap-4">
-        <div className="flex gap-4 items-center">
-          <h5>.pdf resume</h5>
+      <div className="flex flex-col gap-4 sm:[&>div>a]:justify-center sm:[&>div>a]:text-center">
+        <div className="flex gap-4 mediaQuery">
+          <h5>Resume .pdf:</h5>
           <Link
             className="button-transparent flex items-center gap-2"
             href="/resume.pdf"
@@ -64,8 +65,8 @@ export default function ContactMe() {
             <span>Download</span> <BiDownload />
           </Link>
         </div>
-        <div className="flex gap-4 items-center">
-          <h5>.docx resume</h5>
+        <div className="flex gap-4 mediaQuery">
+          <h5>Resume .docx:</h5>
           <Link
             className="button-transparent  flex items-center gap-2"
             href="/resume.pdf"
@@ -75,27 +76,41 @@ export default function ContactMe() {
             <span>Download</span> <BiDownload />
           </Link>
         </div>
-        <div className="flex gap-4 items-center">
+        <div className="flex gap-4 mediaQuery">
           <h5>Email:</h5>
-          <a
-            href="mailto:michal.silski@hotmail.com"
-            aria-label={email}
-            className="button-transparent"
+          <div className="items-center flex gap-2">
+            <a
+              href="mailto:michal.silski@hotmail.com"
+              aria-label={email}
+              className="button-transparent"
+            >
+              <span>{email}</span>
+            </a>
+            <button onClick={handleCopy} className="button-transparent p-3">
+              {copied ? <GiCheckMark className="fill-green-600" /> : <BiCopy />}
+            </button>
+          </div>
+        </div>
+        <div className="flex gap-4 mediaQuery">
+          <h5>LinkedIn:</h5>
+          <Link
+            className="button-transparent px-4 py-3 flex items-center gap-2"
+            href="https://www.linkedin.com/in/micha%C5%82-silski-093a1b278/"
+            target="_blank"
+            rel="noopener"
           >
-            <span>{email}</span>
-          </a>
-          <button onClick={handleCopy} className="button-transparent p-3">
-            {copied ? <GiCheckMark className="fill-green-600" /> : <BiCopy />}
-          </button>
+            <span>Sprawdz mój profil</span>{" "}
+            <FiArrowUpRight className="text-slate-400 text-md" />
+          </Link>
         </div>
       </div>
 
       <div className="flex justify-center">
         <button
-          className="button-transparent p-6"
+          className="button-transparent p-6 sm:p-4 sm:px-5 md:p-6"
           onClick={() => setModalOpen(true)}
         >
-          <span className="leading-normal text-3xl text-accent flex items-center gap-4">
+          <span className="leading-normal text-3xl sm:text-2xl md:text-3xl text-accent flex items-center gap-4">
             Contact Me <AiOutlineSend />
           </span>
         </button>

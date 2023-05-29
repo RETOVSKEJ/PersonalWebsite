@@ -1,9 +1,15 @@
-import { FaTwitter, FaInstagram, FaFacebook, FaGithub } from "react-icons/fa";
+import {
+  FaTwitter,
+  FaInstagram,
+  FaFacebook,
+  FaGithub,
+  FaLinkedin,
+} from "react-icons/fa";
 import Link from "next/link";
 
 export default function Socials() {
   return (
-    <div className="flex gap-4 text-slate-400 [&>a:hover]:brightness-150">
+    <div className="justify-center lg:justify-start flex gap-4 text-slate-400 [&>a:hover]:brightness-150">
       <Link href="https://twitter.com/RETOVSKEJ">
         <FaTwitter size="24" className="top-navigation-icon" />
       </Link>
@@ -15,6 +21,9 @@ export default function Socials() {
       </Link>
       <Link href="https://www.Github.com/RETOVSKEJ">
         <FaGithub size="24" className="top-navigation-icon" />
+      </Link>
+      <Link href="https://www.linkedin.com/in/micha%C5%82-silski-093a1b278/">
+        <FaLinkedin size="24" className="top-navigation-icon" />
       </Link>
     </div>
   );

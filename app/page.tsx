@@ -9,8 +9,8 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className=" grid grid-cols-2 relative my-20 w-2/3 m-auto gap-16">
-      <div className="max-w-4xl h-[calc(100vh-160px)] flex flex-col justify-between sticky top-20 gap-8 self-start">
+    <main className=" grid sm:grid-cols-[250px_1fr] lg:grid-cols-2 relative my-20 w-[95%] sm:w-full lg:w-[82%] sm:pl-10 sm:pr-7 lg:p-0 xl:w-[1200px] m-auto gap-16">
+      <div className="max-w-4xl sm:h-[calc(100vh-160px)] flex flex-col justify-between sm:sticky top-20 gap-8 self-start">
         <Header />
         <Socials />
       </div>

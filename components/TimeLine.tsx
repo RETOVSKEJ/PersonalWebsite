@@ -24,12 +24,12 @@ export default function TimeLine() {
       projects?.offsetTop,
       contact?.offsetTop
     );
-    if (currentScrollPos < projects?.offsetTop!) {
+    if (currentScrollPos < projects?.offsetTop! - 150) {
       setActive("about");
       return;
     }
     if (
-      currentScrollPos > projects?.offsetTop! - 60 &&
+      currentScrollPos > projects?.offsetTop! - 150 &&
       currentScrollPos < contact?.offsetTop! - 500
     ) {
       setActive("projects");
@@ -73,7 +73,7 @@ export default function TimeLine() {
   }, [active]);
 
   return (
-    <nav className="flex flex-col gap-4 uppercase text-xs font-semibold tracking-widest text-slate-500 group [&>div:hover]:text-slate-100 [&>div:hover_span]:bg-slate-100 [&>div:hover_span]:w-16">
+    <nav className="hidden  sm:flex sm:flex-col gap-4 uppercase text-xs font-semibold tracking-widest text-slate-500 group [&>div:hover]:text-slate-100 [&>div:hover_span]:bg-slate-100 [&>div:hover_span]:w-16">
       <div
         ref={aboutRef}
         className="relative flex items-center gap-4 cursor-pointer"
@@ -95,7 +95,7 @@ export default function TimeLine() {
         className="relative flex items-center gap-4 cursor-pointer"
       >
         <span className="nav-indicator"></span>
-        <Link href="#contact">Contact & Resume</Link>
+        <Link href="#contact">Contact</Link>
       </div>
     </nav>
   );

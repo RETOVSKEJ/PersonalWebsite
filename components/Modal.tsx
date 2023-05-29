@@ -41,7 +41,7 @@ export default function Modal({
     >
       <motion.div
         id="modal"
-        className="modal cursor-grab bg-primary/50 backdrop-blur-sm shadow-xl border-all fixed z-50 inset-0 h-fit m-auto p-8 w-2/3 rounded-3xl"
+        className="modal cursor-grab bg-primary/50 backdrop-blur-sm shadow-xl border-all fixed z-50 inset-0 h-fit m-auto p-4 sm:p-6 w-[90%] md:p-8 md:w-4/5 lg:w-2/3 rounded-3xl"
         drag
         dragConstraints={{
           top: -225,
@@ -117,18 +117,19 @@ function ContactForm({
 
   return (
     <>
-      <h2 className="text-3xl text-accent text-center mb-4">
-        Send me a message!
+      <h2 className="text-2xl md:text-4xl text-center mb-7 px-8">
+        Send me a{" "}
+        <span className="text-2xl md:text-4xl text-accent">message!</span>
       </h2>
       <button
-        className="text-accent border border-slate-600 fixed top-0 right-0 rounded-md p-2 m-4"
+        className="text-accent bg-slate-800/20 border border-slate-700 fixed top-0 right-0 rounded-md p-2 m-4"
         onClick={() => handleClose()}
       >
         <AiOutlineClose />
       </button>
       <form className="flex flex-col w-full gap-4" onSubmit={handleSubmit}>
         <motion.div
-          className="cursor-default flex flex-row gap-8"
+          className="cursor-default flex flex-col gap-4 md:flex-row md:gap-8"
           onPointerDownCapture={(e) => e.stopPropagation()}
         >
           <input

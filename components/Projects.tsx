@@ -13,7 +13,9 @@ export default function Projects() {
       <Project
         name={"TanieZarcie"}
         year={2023}
-        desc={"Lorem Ipsum"}
+        desc={
+          "Aplikacja pozwalająca na łatwiejszy wybór zakupu w McDonald. Porównaj wartości odżywcze, ceny oraz rankingi wybranych zestawów. Nie wiesz co kupić? Wylosuj swój zestaw"
+        }
         image={TanieZarcie}
         technologies={[
           "TypeScript",
@@ -29,7 +31,9 @@ export default function Projects() {
       <Project
         name={"FragFeed"}
         year={2023}
-        desc={"Lorem Ipsum"}
+        desc={
+          "Strona internetowa, ułatawiająca śledzenie wydarzeń na światowej scenie e-sportu. Sprawdź najgorętsze wydarzenia ostatniego tygodnia, lub zarejestruj się i opublikuj swój post wraz ze zdjęciem!"
+        }
         image={FragFeed}
         technologies={[
           "Vanilla JS",
@@ -45,9 +49,11 @@ export default function Projects() {
         link={"https://fragfeed.lm.r.appspot.com/"}
       />
       <Project
-        name={"Portfolio Website"}
+        name={"Portfolio"}
         year={2023}
-        desc={"Lorem Ipsum"}
+        desc={
+          "Prywatne portfolio, umożliwajace pozyskania kilku informacji o mnie, oraz kontakt"
+        }
         image={FragFeed}
         technologies={[
           "Typescript",
@@ -71,7 +77,7 @@ export function Project({ name, year, desc, image, technologies, link }) {
       target="_blank"
       rel="noopener"
     >
-      <div className="flex gap-4 p-4 border border-transparent rounded-lg [&:hover>div>h5]:text-accent group  hover:border-slate-700/30 hover:bg-slate-700/30 hover:shadow-xl">
+      <div className="flex gap-4 p-0 py-1 md:p-4 border border-transparent rounded-lg [&:hover>div>h5]:text-accent group  hover:border-slate-700/30 hover:bg-slate-700/30 hover:shadow-xl">
         <div className="w-[34%]">
           <Image width={250} height={200} src={image} alt={name} />
         </div>
@@ -82,8 +88,8 @@ export function Project({ name, year, desc, image, technologies, link }) {
               <FiArrowUpRight />
             </span>
           </h5>
-          <p>{desc}</p>
           <p>{year}</p>
+          <p>{desc}</p>
           <ul className="flex flex-wrap gap-2">
             {technologies.map((technology: string) => (
               <li className="button-sm">{technology}</li>
