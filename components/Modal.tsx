@@ -41,7 +41,7 @@ export default function Modal({
     >
       <motion.div
         id="modal"
-        className="modal cursor-grab bg-primary/50 backdrop-blur-sm shadow-xl border-all fixed z-50 inset-0 h-fit m-auto p-4 sm:p-6 w-[90%] md:p-8 md:w-4/5 lg:w-2/3 rounded-3xl"
+        className="modal cursor-grab bg-primary/50 backdrop-blur-sm shadow-xl border-all fixed z-50 inset-0 h-fit m-auto p-4 sm:p-6 w-[93%] md:p-8 md:w-4/5 lg:w-2/3 rounded-3xl"
         drag
         dragConstraints={{
           top: -225,
@@ -160,7 +160,7 @@ function ContactForm({
           onPointerDownCapture={(e) => e.stopPropagation()}
         >
           <textarea
-            className="input resize-none w-full pb-16"
+            className="input resize-none w-full pb-24 md:pb-16"
             name="message"
             id="message"
             draggable="false"

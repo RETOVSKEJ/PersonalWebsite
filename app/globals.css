@@ -42,6 +42,14 @@
   .opacity-full {
     opacity: 1 !important;
   }
+
+  .mobile {
+    @apply sm:hidden;
+  }
+
+  .pc {
+    @apply hidden sm:block;
+  }
 }
 
 :root {
@@ -63,6 +71,14 @@
 
 body {
   color: rgb(var(--foreground-rgb));
+  background: var(--primary);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-image: radial-gradient(
+    circle at 50vw 45vh,
+    #132149 0%,
+    #0f172a 75%
+  );
 }
 
 h1,
@@ -102,4 +118,28 @@ figcaption::after {
 }
 figcaption {
   quotes: "“" "”" "‘" "’";
+}
+
+.hide {
+  position: relative;
+  filter: blur(4px);
+  left: 90px;
+  opacity: 0;
+  transition: all 1.6s;
+}
+.show {
+  position: relative;
+  filter: none;
+  left: 0px;
+  opacity: 1;
+}
+
+.btnEvents {
+  pointer-events: auto !important;
+}
+
+@media (prefers-reduced-motion) {
+  .hide {
+    transition: none;
+  }
 }

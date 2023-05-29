@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import TanieZarcie from "../public/taniezarcie.png";
 import FragFeed from "../public/fragfeed.png";
@@ -6,10 +6,7 @@ import { FiArrowUpRight } from "react-icons/fi";
 
 export default function Projects() {
   return (
-    <div
-      id="projects"
-      className="flex flex-col gap-4 [&:hover>a:not(:hover)]:opacity-50"
-    >
+    <div className="flex flex-col gap-4 [&:hover>a:not(:hover)]:opacity-50">
       <Project
         name={"TanieZarcie"}
         year={2023}
@@ -69,7 +66,23 @@ export default function Projects() {
   );
 }
 
-export function Project({ name, year, desc, image, technologies, link }) {
+type projectProps = {
+  name: string;
+  year: number;
+  desc: string;
+  image: StaticImageData;
+  technologies: string[];
+  link: string;
+};
+
+export function Project({
+  name,
+  year,
+  desc,
+  image,
+  technologies,
+  link,
+}: projectProps) {
   return (
     <Link
       className="transition-opacity duration-200"

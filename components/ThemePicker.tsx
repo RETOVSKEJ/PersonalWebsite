@@ -9,7 +9,7 @@ export default function ThemePicker() {
 
   useEffect(() => {
     const pointerPosition = { x: 0, y: 0 };
-    document.body.style.backgroundImage = `radial-gradient(circle at ${pointerPosition.x}px ${pointerPosition.y}px, #132149 0%, #0F172A 50%)`;
+    document.body.style.backgroundAttachment = "scroll";
     var throttled = false;
     document.addEventListener("pointermove", (e) => {
       if (!throttled) {

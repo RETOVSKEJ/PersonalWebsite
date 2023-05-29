@@ -14,11 +14,12 @@ export default function Home() {
         <Header />
         <Socials />
       </div>
-      <div className="scroll-smooth flex flex-col overflow-y-auto gap-16">
+      <div className=" scroll-smooth flex flex-col sm:overflow-x-hidden gap-16">
         <AboutMe />
-        <div id="projects">
-          <h2 className="text-3xl  text-center mb-6">
-            Checkout my<span className="text-3xl text-accent"> Projects</span>:
+        <div id="projects" className="hide">
+          <h2 className="text-2xl sm:text-3xl  text-center mb-6">
+            Checkout my
+            <span className="text-2xl sm:text-3xl text-accent"> Projects</span>:
           </h2>
           <Projects />
         </div>

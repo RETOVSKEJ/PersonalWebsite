@@ -5,7 +5,7 @@ import profilePic from "../public/photo.jpg";
 
 export default function Header() {
   return (
-    <div className="flex flex-col gap-6 items-center sm:items-stretch relative">
+    <div className="select-none flex flex-col gap-6 items-center sm:items-stretch relative">
       <div className="overflow-hidden aspect-square max-w-[270px] w-full sm:aspect-[6/7] sm:max-w-[333px] min-h-[150px] max-h-[45vh] rounded-full">
         <Image className="object-cover" src={profilePic} alt="Moje Zdjęcie" />
       </div>

@@ -1,11 +1,10 @@
-//prawdopodobnie dialog z formularzem
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
 import Modal from "@/components/Modal";
 import Toast from "@/components/Toast";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { BiCopy, BiDownload } from "react-icons/bi";
 import { GiCheckMark } from "react-icons/gi";
 import { AiOutlineSend } from "react-icons/ai";
@@ -17,7 +16,7 @@ type StatusEmail = {
   message: string;
 };
 
-const email = process.env.EMAIL;
+const EMAIL = process.env.EMAIL;
 const statusInitialDetails: StatusEmail = {
   success: false,
   message: "",
@@ -34,7 +33,7 @@ export default function ContactMe() {
   const handleCopy = () => {
     setToastOpen(true);
     setCopied(true);
-    navigator.clipboard.writeText(email);
+    navigator.clipboard.writeText(EMAIL!);
     setTimeout(() => {
       handleCloseToast();
     }, 2500);
@@ -48,10 +47,11 @@ export default function ContactMe() {
   }, [status]);
 
   return (
-    <div id="contact" className="flex flex-col gap-8">
-      <h2 className="text-3xl  text-center">
-        <span className="text-3xl text-accent">Contact Me</span> & Checkout my
-        <span className="text-3xl text-accent"> Resume:</span>
+    <div id="contact" className="hide flex flex-col gap-8">
+      <h2 className="text-2xl sm:text-3xl  text-center">
+        <span className="text-2xl sm:text-3xl text-accent">Contact Me</span> &
+        Checkout my
+        <span className="text-2xl sm:text-3xl text-accent"> Resume:</span>
       </h2>
       <div className="flex flex-col gap-4 sm:[&>div>a]:justify-center sm:[&>div>a]:text-center">
         <div className="flex gap-4 mediaQuery">
@@ -81,10 +81,10 @@ export default function ContactMe() {
           <div className="items-center flex gap-2">
             <a
               href="mailto:michal.silski@hotmail.com"
-              aria-label={email}
+              aria-label={EMAIL}
               className="button-transparent"
             >
-              <span>{email}</span>
+              <span>{EMAIL}</span>
             </a>
             <button onClick={handleCopy} className="button-transparent p-3">
               {copied ? <GiCheckMark className="fill-green-600" /> : <BiCopy />}
@@ -108,6 +108,7 @@ export default function ContactMe() {
       <div className="flex justify-center">
         <button
           className="button-transparent p-6 sm:p-4 sm:px-5 md:p-6"
+          id="contact-btn"
           onClick={() => setModalOpen(true)}
         >
           <span className="leading-normal text-3xl sm:text-2xl md:text-3xl text-accent flex items-center gap-4">

@@ -9,9 +9,9 @@ const dancingFont = Italianno({
 
 export default function AboutMe() {
   return (
-    <figure id="about" className="flex flex-col gap-6">
+    <figure id="about" className="hide flex flex-col gap-6">
       <figcaption
-        className={`${dancingFont.className} text-5xl font-bold text-slate-200 sm:text-slate-100  text-center"`}
+        className={`${dancingFont.className} px-1 text-5xl font-bold text-slate-200 sm:text-slate-100  text-center"`}
       >
         Przekuwam swoją pasję w coś pozytywnego dla świata
       </figcaption>
