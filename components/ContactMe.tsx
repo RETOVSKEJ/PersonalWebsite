@@ -10,6 +10,7 @@ import { GiCheckMark } from "react-icons/gi";
 import { AiOutlineSend } from "react-icons/ai";
 import { FiArrowUpRight } from "react-icons/fi";
 import { useEffectAfterMount } from "@/hooks/useEffectAfterMount";
+import { DictType } from "@/dictionaries/dictionaries";
 
 type StatusEmail = {
   success: boolean;
@@ -22,7 +23,7 @@ const statusInitialDetails: StatusEmail = {
   message: "",
 };
 
-export default function ContactMe() {
+export default function ContactMe({ dict }: { dict: DictType }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [sent, setSent] = useState(false);
   const [status, setStatus] = useState<StatusEmail>(statusInitialDetails);
@@ -49,31 +50,38 @@ export default function ContactMe() {
   return (
     <div id="contact" className="hide flex flex-col gap-8">
       <h2 className="text-2xl sm:text-3xl  text-center">
-        <span className="text-2xl sm:text-3xl text-accent">Contact Me</span> &
-        Checkout my
-        <span className="text-2xl sm:text-3xl text-accent"> Resume:</span>
+        <span className="text-2xl sm:text-3xl text-accent">
+          {dict.contact.titlespan1}
+        </span>{" "}
+        {dict.contact.title}
+        <span className="text-2xl sm:text-3xl text-accent">
+          {" "}
+          {dict.contact.titlespan2}
+        </span>
       </h2>
       <div className="flex flex-col gap-4 sm:[&>div>a]:justify-center sm:[&>div>a]:text-center">
         <div className="flex gap-4 mediaQuery">
-          <h5>Resume .pdf:</h5>
+          <h5 className="italic">{dict.contact.cvpl}</h5>
           <Link
             className="button-transparent flex items-center gap-2"
-            href="/resume.pdf"
+            href="/resume_PL.pdf"
             target="_blank"
             rel="noopener"
           >
-            <span>Download</span> <BiDownload className="text-accent text-md" />
+            <span>{dict.contact.download}</span>{" "}
+            <BiDownload className="text-accent text-md" />
           </Link>
         </div>
         <div className="flex gap-4 mediaQuery">
-          <h5>Resume .docx:</h5>
+          <h5 className="italic">{dict.contact.cveng}</h5>
           <Link
             className="button-transparent  flex items-center gap-2"
-            href="/resume.pdf"
+            href="/resume_ENG.pdf"
             target="_blank"
             rel="noopener"
           >
-            <span>Download</span> <BiDownload className="text-accent text-md" />
+            <span>{dict.contact.download}</span>{" "}
+            <BiDownload className="text-accent text-md" />
           </Link>
         </div>
         <div className="flex gap-4 mediaQuery">
@@ -86,7 +94,10 @@ export default function ContactMe() {
             >
               <span>{EMAIL}</span>
             </a>
-            <button onClick={handleCopy} className="button-transparent p-3">
+            <button
+              onClick={handleCopy}
+              className="button-transparent accent p-3"
+            >
               {copied ? <GiCheckMark className="fill-green-600" /> : <BiCopy />}
             </button>
           </div>
@@ -99,7 +110,7 @@ export default function ContactMe() {
             target="_blank"
             rel="noopener"
           >
-            <span>Sprawdz mój profil</span>{" "}
+            <span>{dict.contact.linkedinBtn}</span>
             <FiArrowUpRight className="text-accent text-md" />
           </Link>
         </div>
@@ -112,22 +123,23 @@ export default function ContactMe() {
           onClick={() => setModalOpen(true)}
         >
           <span className="leading-normal text-3xl sm:text-2xl md:text-3xl text-accent flex items-center gap-4">
-            Contact Me <AiOutlineSend />
+            {dict.contact.btn} <AiOutlineSend />
           </span>
         </button>
       </div>
 
       <AnimatePresence initial={false} mode={"wait"}>
         {modalOpen ? (
-          <Modal handleClose={handleCloseModal} setStatus={setStatus} />
+          <Modal
+            dict={dict}
+            handleClose={handleCloseModal}
+            setStatus={setStatus}
+          />
         ) : null}
       </AnimatePresence>
       <AnimatePresence initial={false} mode={"wait"}>
         {toastOpen ? (
-          <Toast
-            handleClose={handleCloseToast}
-            message="Skopiowano email do schowka!"
-          />
+          <Toast handleClose={handleCloseToast} message={dict.toast.copied} />
         ) : null}
         {sent ? (
           <Toast handleClose={() => setSent(false)} message={status.message} />

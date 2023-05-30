@@ -2,8 +2,9 @@ import React from "react";
 import Image from "next/image";
 import TimeLine from "./TimeLine";
 import profilePic from "../public/photo.jpg";
+import { DictType } from "@/dictionaries/dictionaries";
 
-export default function Header() {
+export default function Header({ dict }: { dict: DictType }) {
   return (
     <div className="select-none flex flex-col gap-6 items-center sm:items-stretch relative">
       <div className="overflow-hidden shadow-img aspect-square max-w-[270px] w-full sm:aspect-[6/7] sm:max-w-[333px] min-h-[150px] max-h-[45vh] rounded-full">
@@ -22,7 +23,7 @@ export default function Header() {
           Fullstack Web Developer
         </p>
       </div>
-      <TimeLine />
+      <TimeLine dict={dict} />
     </div>
   );
 }

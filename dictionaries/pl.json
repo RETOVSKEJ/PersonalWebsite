@@ -1,0 +1,42 @@
+{
+  "timeline": {
+    "about": "O mnie",
+    "projects": "Projekty",
+    "contact": "Kontakt"
+  },
+  "aboutMe": {
+    "title": "Przekuwam swoją pasję w coś pozytywnego dla świata",
+    "text": "Jestem studentem informatyki a w przeszłości miałem przyjemność być profesjonalnym graczem oraz reprezentować różne organizacje na wielu zawodach w całym kraju. Zmieniłem profesję, bo zobaczyłem, że umiejetność programowania to niesamowita siła - praktycznie nic nas tutaj nie ogranicza. \n\n Lubię tworzyć - zwłaszcza gdy może to pomagać ludziom. Oceniłbym siebie jako poszukiwacza-perfekcjonistę, z każdej sytuacji w której się znajdę, staram się wyciągnąć wszystko co do ostatniego ziarnka. Pracę traktuję jako szansę na rozwój, a ten jest według mnie czymś niezbędnym w życiu. \n\nObecnie rozbudowuje aplikacje w oparciu o technologie Next.js oraz TailwindCss. W najbliższej przyszłości planuję poszerzyć swoje horyzonty o projektowanie w Figmie, pracę z WebSockets oraz naukę frameworka Svelte."
+  },
+  "projects": {
+    "title": "Sprawdź moje ",
+    "titlespan": "Projekty:",
+    "taniezarcie": "Aplikacja pozwalająca na łatwiejszy wybór zakupu w McDonald. Porównaj wartości odżywcze, ceny oraz rankingi wybranych zestawów. Nie wiesz co kupić? Wylosuj swój zestaw",
+    "fragfeed": "Strona internetowa, ułatawiająca śledzenie wydarzeń na światowej scenie e-sportu. Sprawdź najgorętsze wydarzenia ostatniego tygodnia, lub zarejestruj się i opublikuj swój post wraz ze zdjęciem!",
+    "portfolio": "Prywatne portfolio, umożliwajace pozyskanie kilku informacji o mnie oraz kontakt"
+  },
+  "contact": {
+    "title": " się & Pobierz moje",
+    "titlespan1": "Skontaktuj",
+    "titlespan2": " CV:",
+    "cveng": "Curriculum Vitae (ENG):",
+    "cvpl": "Curriculum Vitae (PL):",
+    "download": "Pobierz",
+    "linkedinBtn": "Sprawdz mój profil",
+    "btn": "Kontakt"
+  },
+  "modal": {
+    "title": "Wyślij mi",
+    "titlespan": "wiadomość!",
+    "name": "Twoje Imię",
+    "email": "Twój Email",
+    "message": "Wiadomość...",
+    "btn": "Wyślij",
+    "btnSending": "Wysyłanie..."
+  },
+  "toast": {
+    "copied": "Skopiowano email do schowka!",
+    "success": "Dziękuje za wiadomość! Postaram się odpowiedzieć na nią jak najszybciej.",
+    "error": "Ups! Coś poszło nie tak. Spróbuj ponownie później."
+  }
+}

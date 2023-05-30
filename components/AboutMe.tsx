@@ -1,5 +1,5 @@
-import React from "react";
-import { Italianno } from "next/font/google";
+import { Didact_Gothic, Italianno } from "next/font/google";
+import { DictType } from "@/dictionaries/dictionaries";
 
 const dancingFont = Italianno({
   subsets: ["latin-ext"],
@@ -7,31 +7,22 @@ const dancingFont = Italianno({
   display: "swap",
 });
 
-export default function AboutMe() {
+export default function AboutMe({
+  children,
+  dict,
+}: {
+  children: React.ReactNode;
+  dict: DictType;
+}) {
   return (
     <figure id="about" className="hide flex flex-col gap-6">
       <figcaption
         className={`${dancingFont.className}  px-1 text-5xl font-bold text-center"`}
       >
-        Przekuwam swoją pasję w coś pozytywnego dla świata
+        {dict.aboutMe.title}
       </figcaption>
-      <blockquote className="w-[90%] mx-auto">
-        Jestem studentem informatyki a w przeszłości miałem przyjemność być
-        profesjonalnym graczem oraz reprezentować różne organizacje na wielu
-        zawodach w całym kraju. Zmieniłem profesję, bo zobaczyłem, że
-        umiejetność programowania to niesamowita siła - praktycznie nic nas
-        tutaj nie ogranicza. <br />
-        <br />
-        Lubię tworzyć - zwłaszcza gdy może to pomagać ludziom. Oceniłbym siebie
-        jako poszukiwacza-perfekcjonistę, z każdej sytuacji w której się znajdę,
-        staram się wyciągnąć wszystko co do ostatniego ziarnka. Pracę traktuję
-        jako szansę na rozwój, a ten jest według mnie czymś niezbędnym w życiu.
-        <br />
-        <br />
-        Obecnie rozbudowuje aplikacje w oparciu o technologie Next.js oraz
-        TailwindCss. W najbliższej przyszłości planuję poszerzyć swoje horyzonty
-        o projektowanie w Figmie, pracę z WebSockets oraz naukę frameworka
-        Svelte.
+      <blockquote className="w-[90%] mx-auto whitespace-pre-line [&>strong]:text-base ">
+        {children}
       </blockquote>
     </figure>
   );

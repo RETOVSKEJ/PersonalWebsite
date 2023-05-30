@@ -16,7 +16,7 @@ export default function Toast({
       animate={{ bottom: "1rem", opacity: 1 }}
       exit={{ bottom: "-2rem", opacity: 0 }}
     >
-      <p className="text-center dark:text-slate-700 text-slate-200">
+      <p className="text-center dark:text-slate-400 text-slate-200">
         {message}{" "}
       </p>
       <button

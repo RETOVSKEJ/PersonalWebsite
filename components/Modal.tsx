@@ -1,6 +1,7 @@
 import { motion, useDragControls } from "framer-motion";
 import { AiOutlineSend, AiOutlineClose } from "react-icons/ai";
 import { FormEvent, useEffect, useTransition, useState } from "react";
+import { DictType } from "@/dictionaries/dictionaries";
 
 type FormData = {
   name: string;
@@ -11,9 +12,11 @@ type FormData = {
 export default function Modal({
   handleClose,
   setStatus,
+  dict,
 }: {
   handleClose: Function;
   setStatus: Function;
+  dict: DictType;
 }) {
   const dropIn = {
     hidden: { y: "-100vh", opacity: 0 },
@@ -56,7 +59,11 @@ export default function Modal({
         animate="visible"
         exit="exit"
       >
-        <ContactForm handleClose={handleClose} setStatus={setStatus} />
+        <ContactForm
+          dict={dict}
+          handleClose={handleClose}
+          setStatus={setStatus}
+        />
       </motion.div>
     </motion.div>
   );
@@ -71,9 +78,11 @@ const formInitialDetails: FormData = {
 function ContactForm({
   handleClose,
   setStatus,
+  dict,
 }: {
   handleClose: Function;
   setStatus: Function;
+  dict: DictType;
 }) {
   const [formDetails, setFormDetails] = useState<FormData>(formInitialDetails);
   const [isLoading, setIsLoading] = useState(false);
@@ -103,13 +112,12 @@ function ContactForm({
       handleClose();
       setStatus({
         success: true,
-        message:
-          "Dziękuje za wiadomość! Postaram się odpowiedzieć na nią jak najszybciej.",
+        message: dict.toast.success,
       });
     } else {
       setStatus({
         success: false,
-        message: "Something went wrong, please try again later.",
+        message: dict.toast.error,
       });
     }
     setIsLoading(false);
@@ -118,8 +126,10 @@ function ContactForm({
   return (
     <>
       <h2 className="text-2xl md:text-4xl text-center mb-7 px-8">
-        Send me a{" "}
-        <span className="text-2xl md:text-4xl text-accent">message!</span>
+        {dict.modal.title}{" "}
+        <span className="text-2xl md:text-4xl text-accent">
+          {dict.modal.titlespan}
+        </span>
       </h2>
       <button
         className="text-accent bg-white/20 border-slate-300/50 dark:bg-slate-800/20 border dark:border-slate-700 fixed top-0 right-0 rounded-md p-2 m-4"
@@ -137,7 +147,7 @@ function ContactForm({
             type="text"
             name="name"
             id="name"
-            placeholder="Your Name"
+            placeholder={dict.modal.name}
             draggable="false"
             required
             value={formDetails.name}
@@ -150,7 +160,7 @@ function ContactForm({
             id="email"
             draggable="false"
             required
-            placeholder="Your Email"
+            placeholder={dict.modal.email}
             value={formDetails.email}
             onChange={(e) => onFormUpdate("email", e.target.value)}
           />
@@ -165,7 +175,7 @@ function ContactForm({
             id="message"
             draggable="false"
             rows={5}
-            placeholder="Message"
+            placeholder={dict.modal.message}
             value={formDetails.message}
             onChange={(e) => onFormUpdate("message", e.target.value)}
             required
@@ -173,7 +183,7 @@ function ContactForm({
           <div className="rounded-tl-lg rounded-br-md  absolute bottom-0 right-0 m-4 bg-transparent">
             <button className="button shadow-md dark:border dark:border-slate-700/80 dark:bg-primary/30 flexCenter gap-1">
               <AiOutlineSend />
-              {isLoading ? "Sending..." : "Send"}
+              {isLoading ? dict.modal.btnSending : dict.modal.btn}
             </button>
           </div>
         </motion.div>

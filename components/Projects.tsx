@@ -2,23 +2,23 @@ import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import TanieZarcie from "../public/taniezarcie.png";
 import FragFeed from "../public/fragfeed.png";
+import Portfolio from "../public/portfolio.png";
 import { FiArrowUpRight } from "react-icons/fi";
+import { DictType } from "@/dictionaries/dictionaries";
 
-export default function Projects() {
+export default function Projects({ dict }: { dict: DictType }) {
   return (
     <div className="flex flex-col gap-5 [&:hover>a:not(:hover)]:opacity-50">
       <Project
         name={"TanieZarcie"}
         year={2023}
-        desc={
-          "Aplikacja pozwalająca na łatwiejszy wybór zakupu w McDonald. Porównaj wartości odżywcze, ceny oraz rankingi wybranych zestawów. Nie wiesz co kupić? Wylosuj swój zestaw"
-        }
+        desc={dict.projects.taniezarcie}
         image={TanieZarcie}
         technologies={[
           "TypeScript",
           "Next.js 13",
-          "CSS Modules",
           "React",
+          "CSS Modules",
           "Prisma",
           "PostgreSQL",
           "Puppeteer",
@@ -28,9 +28,7 @@ export default function Projects() {
       <Project
         name={"FragFeed"}
         year={2023}
-        desc={
-          "Strona internetowa, ułatawiająca śledzenie wydarzeń na światowej scenie e-sportu. Sprawdź najgorętsze wydarzenia ostatniego tygodnia, lub zarejestruj się i opublikuj swój post wraz ze zdjęciem!"
-        }
+        desc={dict.projects.fragfeed}
         image={FragFeed}
         technologies={[
           "Vanilla JS",
@@ -48,15 +46,13 @@ export default function Projects() {
       <Project
         name={"Portfolio"}
         year={2023}
-        desc={
-          "Prywatne portfolio, umożliwajace pozyskanie kilku informacji o mnie oraz kontakt"
-        }
-        image={FragFeed}
+        desc={dict.projects.portfolio}
+        image={Portfolio}
         technologies={[
           "Typescript",
           "Next.js 13",
           "React",
-          "Tailwind",
+          "TailwindCSS",
           "Framer-motion",
           "Nodemailer",
         ]}

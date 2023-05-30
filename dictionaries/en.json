@@ -1,0 +1,42 @@
+{
+  "timeline": {
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "aboutMe": {
+    "title": "Transforming my passion into a force for positive change in the world.",
+    "text": "I am a computer science student who had the pleasure of being a professional gamer in the past, representing various organizations in numerous competitions nationwide. I switched professions when I realized that programming is an incredible power – there are virtually no limits here.\n\nI have a passion for creating, especially when it can make a positive difference in people's lives. I would describe myself as an explorer-perfectionist; in every situation, I strive to extract everything to the last grain. I see work as an opportunity for growth, which I consider essential in life.\n\nCurrently, I am expanding applications based on Next.js and Tailwind CSS. In the near future, I plan to broaden my horizons by delving into Figma design, working with WebSockets, and learning the Svelte framework."
+  },
+  "projects": {
+    "title": "Checkout my ",
+    "titlespan": "Projects:",
+    "taniezarcie": "Web-app for making people's lifes easier when it comes to picking the right food in McDonald. Compare all of the items from menu, see the ranks and just look at the sets inside of the beatiful carousel. Don't know what to order? Just draw your next food!",
+    "fragfeed": "Web-site which make it easier to follow all of the dramas and events from the esport scene. Check all of the hottest feeds from last week, create an account, and share your own posts!",
+    "portfolio": "Personal Website to help people reach me out easier. Feel free to leave me a message here."
+  },
+  "contact": {
+    "title": "& Checkout my",
+    "titlespan1": " Contact Me",
+    "titlespan2": " Resume:",
+    "cveng": "Resume (ENG):",
+    "cvpl": "Resume (PL):",
+    "download": "Download",
+    "linkedinBtn": "Visit my profile",
+    "btn": "Contact Me"
+  },
+  "modal": {
+    "title": "Send me a ",
+    "titlespan": "message!",
+    "name": "Your Name",
+    "email": "Your Email",
+    "message": "Message...",
+    "btn": "Send",
+    "btnSending": "Sending..."
+  },
+  "toast": {
+    "copied": "Email copied to clipboard!",
+    "success": "Thank you for your message! I will respond to it as soon as possible.",
+    "error": "Something went wrong, please try again later."
+  }
+}

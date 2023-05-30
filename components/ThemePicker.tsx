@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from "react";
 import useDarkMode from "@/hooks/useDarkMode";
 
 export default function ThemePicker() {
-  const [darkTheme, setDarkTheme] = useDarkMode();
+  const [darkTheme, setDarkTheme] = useDarkMode("true");
   const btnRef = useRef<HTMLButtonElement>(null);
   const PRIMARY = "#0F172A";
 
@@ -61,11 +61,7 @@ export default function ThemePicker() {
       ref={btnRef}
       onClick={handleMode}
     >
-      {darkTheme ? (
-        <FaSun size="24" className="top-navigation-icon" />
-      ) : (
-        <FaMoon size="24" className="top-navigation-icon" />
-      )}
+      {darkTheme === true ? <FaSun size="24" /> : <FaMoon size="24" />}
     </button>
   );
 }

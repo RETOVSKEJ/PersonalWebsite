@@ -1,14 +1,14 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
+import { DictType } from "@/dictionaries/dictionaries";
 
 const CLASSES_TO_ADD =
   "text-accent [&>span]:bg-accent dark:text-slate-100 dark:[&>span]:bg-slate-100 [&>span]:w-16".split(
     " "
   );
-console.log(CLASSES_TO_ADD);
 
-export default function TimeLine() {
+export default function TimeLine({ dict }: { dict: DictType }) {
   const [active, setActive] = useState("about");
   const aboutRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
@@ -115,7 +115,7 @@ export default function TimeLine() {
         className="relative flex items-center gap-4 cursor-pointer"
       >
         <span className="nav-indicator"></span>
-        <Link href="#about">About</Link>
+        <Link href="#about">{dict.timeline.about}</Link>
       </div>
 
       <div
@@ -123,7 +123,7 @@ export default function TimeLine() {
         className="relative flex items-center gap-4 cursor-pointer"
       >
         <span className="nav-indicator"></span>
-        <Link href="#projects">Projects</Link>
+        <Link href="#projects">{dict.timeline.projects}</Link>
       </div>
 
       <div
@@ -131,7 +131,7 @@ export default function TimeLine() {
         className="relative flex items-center gap-4 cursor-pointer"
       >
         <span className="nav-indicator"></span>
-        <Link href="#contact">Contact</Link>
+        <Link href="#contact">{dict.timeline.contact}</Link>
       </div>
     </nav>
   );

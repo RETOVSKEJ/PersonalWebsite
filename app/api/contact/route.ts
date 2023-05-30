@@ -32,7 +32,7 @@ export async function POST(req: NextRequest) {
       <p>${message}</p>
       `,
     });
-    console.log(newEmail);
+    console.log("Message Sent");
   } catch (error) {
     console.error(error);
   }
