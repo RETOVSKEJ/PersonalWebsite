@@ -18,6 +18,9 @@ export async function POST(req: NextRequest) {
 
   const mojEmail = process.env.EMAIL;
   const transporter = nodemailer.createTransport({
+    pool: true,
+    maxConnections: 4,
+    maxMessages: 10,
     host: "smtp-mail.outlook.com", // host hotmaila, smpt.live.com nie działa
     port: 587, // port hotmaila
     secure: false, // true for 465, false for other ports
