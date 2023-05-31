@@ -25,26 +25,41 @@ export function middleware(request: NextRequest) {
   );
 
   // Redirect if there is no locale
-  if (pathnameIsMissingLocale) {
-    const locale = getLocale(request);
+  // if (pathnameIsMissingLocale) {
+  //   const locale = getLocale(request);
 
-    // e.g. incoming request is /products
-    // The new URL is now /en-US/products
+  //   // e.g. incoming request is /products
+  //   // The new URL is now /en-US/products
 
-    // return NextResponse.redirect(
-    //   new URL(`/${locale}/${pathname}`, request.url)
-    // );
-    if (pathname !== "/")
-      return NextResponse.redirect(
-        new URL(`/${locale}${pathname}`, request.url)
-      );
-    return NextResponse.redirect(new URL(`/${locale}`, request.url));
-  }
+  //   let url;
+  //   pathname === "/"
+  //     ? (url = new URL(`/${locale}`, request.url))
+  //     : (url = new URL(`/${locale}${pathname}`, request.url));
+  //   return NextResponse.redirect(url, {
+  //     status: 302,
+  //     headers: {
+  //       "Cache-Control": "s-maxage=1000000",
+  //     },
+  //   });
+  //   // if (pathname.startsWith(locale)) {
+  //   //   return NextResponse.redirect(
+  //   //     new URL(`/${locale}${pathname}`, request.url)
+  //   //   );
+  //   // }
+
+  //   // return NextResponse.redirect(new URL(`/${locale}`, request.url));
+  // }
+  // return NextResponse.redirect(new URL("/test"), {
+  //   status: 302,
+  //   headers: {
+  //     "Cache-Control": "s-maxage=1000000",
+  //   },
+  // });
 }
 
 export const config = {
-  // Matcher ignoring `/_next/` and `/api/`,  but we need to ignore files in `public` manually.
+  // Matcher ignoring `/_next/` and `/api/`,  but we need to ignore files in `public` manually. AND /pl /en
   matcher: [
-    "/((?!api|_next/static|_next/image|favicon.ico|resume_ENG.pdf|resume_PL.pdf).*)",
+    "/((?!api|_next/static|_next/image|pl|en|favicon.ico|resume_ENG.pdf|resume_PL.pdf).*)",
   ],
 };
