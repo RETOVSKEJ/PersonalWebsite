@@ -24,37 +24,18 @@ export function middleware(request: NextRequest) {
     (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
   );
 
-  // Redirect if there is no locale
-  // if (pathnameIsMissingLocale) {
-  //   const locale = getLocale(request);
+  if (pathnameIsMissingLocale) {
+    const locale = getLocale(request);
 
-  //   // e.g. incoming request is /products
-  //   // The new URL is now /en-US/products
+    // e.g. incoming request is /products
+    // The new URL is now /en-US/products
 
-  //   let url;
-  //   pathname === "/"
-  //     ? (url = new URL(`/${locale}`, request.url))
-  //     : (url = new URL(`/${locale}${pathname}`, request.url));
-  //   return NextResponse.redirect(url, {
-  //     status: 302,
-  //     headers: {
-  //       "Cache-Control": "s-maxage=1000000",
-  //     },
-  //   });
-  //   // if (pathname.startsWith(locale)) {
-  //   //   return NextResponse.redirect(
-  //   //     new URL(`/${locale}${pathname}`, request.url)
-  //   //   );
-  //   // }
-
-  //   // return NextResponse.redirect(new URL(`/${locale}`, request.url));
-  // }
-  // return NextResponse.redirect(new URL("/test"), {
-  //   status: 302,
-  //   headers: {
-  //     "Cache-Control": "s-maxage=1000000",
-  //   },
-  // });
+    let url;
+    pathname === "/"
+      ? (url = new URL(`/${locale}`, request.url))
+      : (url = new URL(`/${locale}${pathname}`, request.url));
+    return NextResponse.redirect(url);
+  }
 }
 
 export const config = {

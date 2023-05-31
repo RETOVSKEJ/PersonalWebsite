@@ -24,7 +24,7 @@ export default function Projects({ dict }: { dict: DictType }) {
           "Puppeteer",
         ]}
         alt={dict.accessibility.taniezarcieAlt}
-        link={"https://www.taniezarcie.vercel.app/"}
+        link={" https://taniezarcie-retovskej.vercel.app/"}
       />
       <Project
         name={"FragFeed"}
@@ -91,8 +91,8 @@ export function Project({
       rel="noopener"
       target="_blank"
     >
-      <div className="flex gap-4 p-0 py-1 md:p-4 border border-transparent rounded-lg [&:hover>div>h5]:text-accent group  hover:border-slate-400/20 hover:bg-white/20 dark:hover:border-slate-700/30 dark:hover:bg-slate-700/30 hover:shadow-lg">
-        <div className="pt-[5px] w-[34%]">
+      <div className="group flex gap-4 rounded-lg border border-transparent p-0 py-1 hover:border-slate-400/20 hover:bg-white/20  hover:shadow-lg dark:hover:border-slate-700/30 dark:hover:bg-slate-700/30 md:p-4 [&:hover>div>h5]:text-accent">
+        <div className="w-[34%] pt-[5px]">
           <Image
             className="shadow-xl"
             width={250}
@@ -101,14 +101,14 @@ export function Project({
             alt={alt}
           />
         </div>
-        <div className="w-[66%] flex flex-col gap-2">
-          <h5 className="text-base flex items-center gap-1">
+        <div className="flex w-[66%] flex-col gap-2">
+          <h5 className="flex items-center gap-1 text-base">
             {name}
-            <span className="text-base self-end group-hover:text-accent group-hover:-translate-y-1 group-hover:translate-x-[2px] transition-all duration-300  pb-[2px] ">
+            <span className="self-end pb-[2px] text-base transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-[2px]  group-hover:text-accent ">
               <FiArrowUpRight />
             </span>
           </h5>
-          <p className="text-slate-500 dark:text-slate-400 font-semibold">
+          <p className="font-semibold text-slate-500 dark:text-slate-400">
             {year}
           </p>
           <p className="text-slate-500 dark:text-slate-400">{desc}</p>

@@ -18,9 +18,6 @@ export async function POST(req: NextRequest) {
 
   const mojEmail = process.env.EMAIL;
   const transporter = nodemailer.createTransport({
-    pool: true,
-    maxConnections: 4,
-    maxMessages: 10,
     host: "smtp-mail.outlook.com", // host hotmaila, smpt.live.com nie działa
     port: 587, // port hotmaila
     secure: false, // true for 465, false for other ports
@@ -29,6 +26,13 @@ export async function POST(req: NextRequest) {
       pass: process.env.EMAIL_PASS,
     },
   });
+
+  if (mojEmail === undefined || process.env.EMAIL_PASS === undefined) {
+    return NextResponse.json(
+      { success: false, message: "Vercel error" },
+      { status: 500 }
+    );
+  }
 
   try {
     let newEmail = await transporter.sendMail({
@@ -42,12 +46,16 @@ export async function POST(req: NextRequest) {
       `,
     });
     console.log("Message Sent");
+
+    return NextResponse.json(
+      { success: true, message: "Wysłano Email!" },
+      { status: 201 }
+    );
   } catch (error) {
     console.error(error);
   }
-
   return NextResponse.json(
-    { success: true, message: "Wysłano Email!" },
-    { status: 201 }
+    { success: false, message: "Wystąpił niespodziewany błąd" },
+    { status: 500 }
   );
 }

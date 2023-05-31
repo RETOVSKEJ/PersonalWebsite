@@ -11,13 +11,13 @@
   }
 
   .button {
-    @apply cursor-pointer shadow px-3.5 py-2 bg-slate-700 text-accent rounded-md hover:brightness-110 dark:hover:brightness-125;
+    @apply cursor-pointer rounded-md bg-slate-700 px-3.5 py-2 text-accent shadow hover:brightness-110 dark:hover:brightness-125;
   }
   .button-sm {
-    @apply button py-1.5 px-3 text-xs rounded-full bg-slate-200 dark:bg-slate-700;
+    @apply button rounded-full bg-slate-200 px-3 py-1.5 text-xs dark:bg-slate-700;
   }
   .button-transparent {
-    @apply text-slate-600 dark:text-slate-400 py-2 px-4 rounded-md shadow-md border border-slate-400/30 bg-white/20 dark:border-slate-700 dark:bg-slate-700/20 hover:brightness-110 active:brightness-125 dark:hover:brightness-150 dark:active:brightness-200;
+    @apply rounded-md border border-slate-400/30 bg-white/20 px-4 py-2 text-slate-600 shadow-md hover:brightness-110 active:brightness-125 dark:border-slate-700 dark:bg-slate-700/20 dark:text-slate-400 dark:hover:brightness-150 dark:active:brightness-200;
   }
 
   .accent {
@@ -25,7 +25,7 @@
   }
 
   .nav-indicator {
-    @apply w-8 h-px bg-slate-600 transition-all duration-300;
+    @apply h-px w-8 bg-slate-600 transition-all duration-300;
   }
 
   .flexCenter {
@@ -33,11 +33,11 @@
   }
 
   .input {
-    @apply p-3  text-slate-600 bg-slate-300/70  dark:text-slate-300  dark:bg-slate-700/80 shadow-md outline-none rounded-md dark:placeholder:text-slate-400/50 placeholder:text-slate-600/50;
+    @apply rounded-md  bg-slate-300/70 p-3  text-slate-600  shadow-md outline-none placeholder:text-slate-600/50 dark:bg-slate-700/80 dark:text-slate-300 dark:placeholder:text-slate-400/50;
   }
 
   .mediaQuery {
-    @apply items-center sm:items-stretch  md:items-center  sm:flex-col md:flex-row;
+    @apply items-center sm:flex-col  sm:items-stretch  md:flex-row md:items-center;
   }
 
   .opacity-full {
@@ -107,18 +107,18 @@ body.dark {
 
 h1,
 h2 {
-  @apply text-2xl text-slate-700 dark:text-slate-200 font-bold antialiased;
+  @apply text-2xl font-bold text-slate-700 antialiased dark:text-slate-200;
 }
 
 h3,
 h4,
 h5,
 h6 {
-  @apply text-base text-slate-700 dark:text-slate-200 md:text-lg  font-bold antialiased;
+  @apply text-base font-bold text-slate-700 antialiased  dark:text-slate-200 md:text-lg;
 }
 
 blockquote {
-  @apply text-slate-600 dark:text-slate-300 italic antialiased;
+  @apply italic text-slate-600 antialiased dark:text-slate-300;
 }
 
 p,
@@ -149,7 +149,8 @@ figcaption {
   filter: blur(4px);
   left: 90px;
   opacity: 0;
-  transition: all 1.6s;
+  transition: all 1.8s;
+  transition-timing-function: cubic-bezier(0.57, -0.07, 0.45, 0.73);
 }
 .show {
   position: relative;
@@ -160,7 +161,7 @@ figcaption {
 
 @media (max-width: 640px) {
   .hide {
-    transition: all 1.12s;
+    transition: all 1.2s;
     left: 54px;
   }
 
