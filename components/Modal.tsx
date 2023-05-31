@@ -36,7 +36,7 @@ export default function Modal({
   return (
     <motion.div
       id="backdrop"
-      className=" bg-black/25 backdrop-blur fixed top-0 left-0 w-full h-full z-10"
+      className=" fixed left-0 top-0 z-10 h-full w-full bg-black/25 backdrop-blur"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -44,7 +44,7 @@ export default function Modal({
     >
       <motion.div
         id="modal"
-        className="modal cursor-grab bg-orange-100/50 dark:bg-primary/50 backdrop-blur-sm shadow-xl border border-slate-400/40 dark:border-slate-800 fixed z-50 inset-0 h-fit m-auto p-4 sm:p-6 w-[93%] md:p-8 md:w-4/5 lg:w-2/3 rounded-3xl"
+        className="modal fixed inset-0 z-50 m-auto h-fit w-[93%] cursor-grab rounded-3xl border border-slate-400/40 bg-orange-100/50 p-4 shadow-xl backdrop-blur-sm dark:border-slate-800 dark:bg-primary/50 sm:p-6 md:w-4/5 md:p-8 lg:w-2/3"
         drag
         dragConstraints={{
           top: -225,
@@ -97,7 +97,7 @@ function ContactForm({
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
-    let response = await fetch("/api/contact", {
+    let response = await fetch("http://127.0.0.1:3000/api/contact", {
       method: "POST",
       headers: {
         "Content-Type": "application/json;charset=utf-8",
@@ -125,22 +125,22 @@ function ContactForm({
 
   return (
     <>
-      <h2 className="text-2xl md:text-4xl text-center mb-7 px-8">
+      <h2 className="mb-7 px-8 text-center text-2xl md:text-4xl">
         {dict.modal.title}{" "}
-        <span className="text-2xl md:text-4xl text-accent">
+        <span className="text-2xl text-accent md:text-4xl">
           {dict.modal.titlespan}
         </span>
       </h2>
       <button
         aria-label="Close Modal"
-        className="hover:brightness-125 text-accent bg-white/10 border-slate-300/20 dark:bg-slate-800/20 border dark:border-slate-700 fixed top-0 right-0 rounded-md p-2 m-4"
+        className="fixed right-0 top-0 m-4 rounded-md border border-slate-300/20 bg-white/10 p-2 text-accent hover:brightness-125 dark:border-slate-700 dark:bg-slate-800/20"
         onClick={() => handleClose()}
       >
         <AiOutlineClose />
       </button>
-      <form className="flex flex-col w-full gap-4" onSubmit={handleSubmit}>
+      <form className="flex w-full flex-col gap-4" onSubmit={handleSubmit}>
         <motion.div
-          className="cursor-default flex flex-col gap-4 md:flex-row md:gap-8"
+          className="flex cursor-default flex-col gap-4 md:flex-row md:gap-8"
           onPointerDownCapture={(e) => e.stopPropagation()}
         >
           <input
@@ -167,11 +167,11 @@ function ContactForm({
           />
         </motion.div>
         <motion.div
-          className="cursor-default relative"
+          className="relative cursor-default"
           onPointerDownCapture={(e) => e.stopPropagation()}
         >
           <textarea
-            className="input resize-none w-full pb-24 md:pb-16"
+            className="input w-full resize-none pb-24 md:pb-16"
             name="message"
             id="message"
             draggable="false"
@@ -181,8 +181,8 @@ function ContactForm({
             onChange={(e) => onFormUpdate("message", e.target.value)}
             required
           ></textarea>
-          <div className="rounded-tl-lg rounded-br-md  absolute bottom-0 right-0 m-4 bg-transparent">
-            <button className="button bg-primary/50 shadow-md dark:border dark:border-slate-700/80 dark:bg-primary/30 flexCenter gap-1">
+          <div className="absolute bottom-0  right-0 m-4 rounded-br-md rounded-tl-lg bg-transparent">
+            <button className="button flexCenter gap-1 bg-primary/50 shadow-md dark:border dark:border-slate-700/80 dark:bg-primary/30">
               <AiOutlineSend />
               {isLoading ? dict.modal.btnSending : dict.modal.btn}
             </button>
