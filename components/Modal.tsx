@@ -97,9 +97,10 @@ function ContactForm({
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
-    let response = await fetch("http://127.0.0.1:3000/api/contact", {
+    let response = await fetch("/api/contact", {
       method: "POST",
       headers: {
+        Host: window.location.host,
         "Content-Type": "application/json;charset=utf-8",
       },
       body: JSON.stringify(formDetails),
