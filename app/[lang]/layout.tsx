@@ -36,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang={params.lang}>
       <body
-        className={`${inter.className} overflow-x-hidden  scroll-smooth border-box selection:bg-accent selection:text-slate-600`}
+        className={`${inter.className} border-box  overflow-x-hidden scroll-smooth selection:bg-accent selection:text-slate-600`}
       >
         <Navbar lang={params.lang} />
         {children}
