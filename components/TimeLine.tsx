@@ -45,20 +45,12 @@ export default function TimeLine({ dict }: { dict: DictType }) {
     const about = document.getElementById("about");
     const projects = document.getElementById("projects");
     const contact = document.getElementById("contact");
-    const contactBtn = document.getElementById(
-      "contact-btn"
-    ) as HTMLButtonElement;
 
     const options = {
       root: null,
       rootMargin: "0px",
       threshold: 0.2,
     };
-
-    contact!.ontransitionstart = () =>
-      contactBtn.setAttribute("disabled", "disabled");
-
-    contact!.ontransitionend = () => contactBtn.removeAttribute("disabled");
 
     const observer = new IntersectionObserver((entries) => {
       let it = 0;
@@ -109,10 +101,10 @@ export default function TimeLine({ dict }: { dict: DictType }) {
   }, [active]);
 
   return (
-    <nav className="hidden  sm:flex sm:flex-col gap-4 uppercase text-xs font-semibold tracking-widest text-slate-600 dark:text-slate-500 group [&>div:hover]:text-accent [&>div:hover_span]:bg-accent dark:[&>div:hover]:text-slate-100 dark:[&>div:hover_span]:bg-slate-100 [&>div:hover_span]:w-16">
+    <nav className="group  hidden gap-4 text-xs font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-500 sm:flex sm:flex-col [&>div:hover]:text-accent dark:[&>div:hover]:text-slate-100 [&>div:hover_span]:w-16 [&>div:hover_span]:bg-accent dark:[&>div:hover_span]:bg-slate-100">
       <div
         ref={aboutRef}
-        className="relative flex items-center gap-4 cursor-pointer"
+        className="relative flex cursor-pointer items-center gap-4"
       >
         <span className="nav-indicator"></span>
         <Link href="#about">{dict.timeline.about}</Link>
@@ -120,7 +112,7 @@ export default function TimeLine({ dict }: { dict: DictType }) {
 
       <div
         ref={projectsRef}
-        className="relative flex items-center gap-4 cursor-pointer"
+        className="relative flex cursor-pointer items-center gap-4"
       >
         <span className="nav-indicator"></span>
         <Link href="#projects">{dict.timeline.projects}</Link>
@@ -128,7 +120,7 @@ export default function TimeLine({ dict }: { dict: DictType }) {
 
       <div
         ref={contactRef}
-        className="relative flex items-center gap-4 cursor-pointer"
+        className="relative flex cursor-pointer items-center gap-4"
       >
         <span className="nav-indicator"></span>
         <Link href="#contact">{dict.timeline.contact}</Link>

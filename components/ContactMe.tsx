@@ -29,6 +29,7 @@ export default function ContactMe({ dict }: { dict: DictType }) {
   const [status, setStatus] = useState<StatusEmail>(statusInitialDetails);
   const [toastOpen, setToastOpen] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [btnDisabled, setBtnDisabled] = useState(true);
   const handleCloseModal = () => setModalOpen(false);
   const handleCloseToast = () => setToastOpen(false);
   const handleCopy = () => {
@@ -48,19 +49,23 @@ export default function ContactMe({ dict }: { dict: DictType }) {
   }, [status]);
 
   return (
-    <div id="contact" className="hide flex flex-col gap-8">
-      <h2 className="text-2xl sm:text-3xl  text-center">
-        <span className="text-2xl sm:text-3xl text-accent">
+    <div
+      id="contact"
+      onTransitionEnd={() => setBtnDisabled(false)}
+      className="hide flex flex-col gap-8"
+    >
+      <h2 className="text-center text-2xl  sm:text-3xl">
+        <span className="text-2xl text-accent sm:text-3xl">
           {dict.contact.titlespan1}
         </span>{" "}
         {dict.contact.title}
-        <span className="text-2xl sm:text-3xl text-accent">
+        <span className="text-2xl text-accent sm:text-3xl">
           {" "}
           {dict.contact.titlespan2}
         </span>
       </h2>
       <div className="flex flex-col gap-4 sm:[&>div>a]:justify-center sm:[&>div>a]:text-center">
-        <div className="flex gap-4 mediaQuery">
+        <div className="mediaQuery flex gap-4">
           <h5 className="italic">{dict.contact.cvpl}</h5>
           <Link
             className="button-transparent flex items-center gap-2"
@@ -70,10 +75,10 @@ export default function ContactMe({ dict }: { dict: DictType }) {
             aria-label="Download CV (Polskie)"
           >
             <span>{dict.contact.download}</span>{" "}
-            <BiDownload className="text-accent text-md" />
+            <BiDownload className="text-md text-accent" />
           </Link>
         </div>
-        <div className="flex gap-4 mediaQuery">
+        <div className="mediaQuery flex gap-4">
           <h5 className="italic">{dict.contact.cveng}</h5>
           <Link
             className="button-transparent  flex items-center gap-2"
@@ -83,12 +88,12 @@ export default function ContactMe({ dict }: { dict: DictType }) {
             aria-label="Download Resume (English)"
           >
             <span>{dict.contact.download}</span>{" "}
-            <BiDownload className="text-accent text-md" />
+            <BiDownload className="text-md text-accent" />
           </Link>
         </div>
-        <div className="flex gap-4 mediaQuery">
+        <div className="mediaQuery flex gap-4">
           <h5>Email:</h5>
-          <div className="items-center flex gap-2">
+          <div className="flex items-center gap-2">
             <a
               href="mailto:michal.silski@hotmail.com"
               aria-label={EMAIL}
@@ -112,17 +117,17 @@ export default function ContactMe({ dict }: { dict: DictType }) {
             </button>
           </div>
         </div>
-        <div className="flex gap-4 mediaQuery">
+        <div className="mediaQuery flex gap-4">
           <h5>LinkedIn:</h5>
           <Link
             aria-label={(dict.contact.linkedinBtn, " button")}
-            className="button-transparent px-4 py-3 flex items-center gap-2"
+            className="button-transparent flex items-center gap-2 px-4 py-3"
             href="https://www.linkedin.com/in/micha%C5%82-silski-093a1b278/"
             target="_blank"
             rel="noopener"
           >
             <span>{dict.contact.linkedinBtn}</span>
-            <FiArrowUpRight className="text-accent text-md" />
+            <FiArrowUpRight className="text-md text-accent" />
           </Link>
         </div>
       </div>
@@ -133,8 +138,9 @@ export default function ContactMe({ dict }: { dict: DictType }) {
           className="button-transparent m-2 p-6 sm:p-4 sm:px-5 md:p-6"
           id="contact-btn"
           onClick={() => setModalOpen(true)}
+          disabled={btnDisabled}
         >
-          <span className="leading-normal text-3xl sm:text-2xl md:text-3xl text-accent flex items-center gap-4">
+          <span className="flex items-center gap-4 text-3xl leading-normal text-accent sm:text-2xl md:text-3xl">
             {dict.contact.btn} <AiOutlineSend />
           </span>
         </button>
