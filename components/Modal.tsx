@@ -44,7 +44,7 @@ export default function Modal({
     >
       <motion.div
         id="modal"
-        className="modal fixed inset-0 z-50 m-auto h-fit w-[93%] cursor-grab rounded-3xl border border-slate-400/40 bg-orange-100/50 p-4 shadow-xl backdrop-blur-sm dark:border-slate-800 dark:bg-primary/50 sm:p-6 md:w-4/5 md:p-8 lg:w-2/3"
+        className="modal fixed inset-0 z-50 m-auto h-fit w-[93%] cursor-grab rounded-3xl border border-slate-400/40 bg-orange-100/70 p-4 shadow-xl saturate-150 backdrop-blur-sm dark:border-slate-800 dark:bg-primary/50 dark:saturate-150 sm:p-6 md:w-4/5 md:p-8 lg:w-2/3"
         drag
         dragConstraints={{
           top: -225,
@@ -134,7 +134,7 @@ function ContactForm({
       </h2>
       <button
         aria-label="Close Modal"
-        className="fixed right-0 top-0 m-4 rounded-md border border-slate-300/20 bg-white/10 p-2 text-accent hover:brightness-125 dark:border-slate-700 dark:bg-slate-800/20"
+        className="fixed right-0 top-0 m-4 rounded-md border border-slate-300/30 bg-white/20 p-2 text-accent hover:brightness-125 dark:border-slate-700 dark:bg-slate-800/20"
         onClick={() => handleClose()}
       >
         <AiOutlineClose />
