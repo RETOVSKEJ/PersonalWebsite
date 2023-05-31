@@ -2,8 +2,6 @@ import "@/app/globals.css";
 import { Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import { i18n, Locale } from "@/dictionaries/i18n-config";
-import { Suspense } from "react";
-import Loading from "@/app/loading";
 
 const inter = Inter({ subsets: ["latin"] });
 

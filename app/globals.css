@@ -62,17 +62,7 @@
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 
-  --primary: #e2dddd;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-
-    --primary: rgb(13, 23, 42);
-  }
+  --primary: rgb(227, 223, 221);
 }
 
 body {
@@ -80,13 +70,13 @@ body {
   background: var(--primary);
   background-attachment: fixed;
   background-repeat: no-repeat;
-  background-image: radial-gradient(
+  /* background-image: radial-gradient(
     circle at 50vw 45vh,
     #132149 0%,
-    #0f172a 75%
-  );
+    #0f172a 70%
+  ); */
 
-  --color-primary: 240 240 240;
+  --color-primary: 227 221 221;
   --color-accent: 255 119 0;
   --color-txt: 15 23 42; /* text-slate-900 */
 }
@@ -95,6 +85,24 @@ body.dark {
   --color-primary: 15 23 42;
   --color-accent: 86 209 201;
   --color-txt: 203 213 225; /* text-slate-300 */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+
+    /* --primary: rgb(13, 23, 42); */
+  }
+
+  body {
+    background-image: radial-gradient(
+      circle at 50vw 45vh,
+      #132149 0%,
+      #0f172a 70%
+    );
+  }
 }
 
 h1,

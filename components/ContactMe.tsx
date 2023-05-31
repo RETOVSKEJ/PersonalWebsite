@@ -67,6 +67,7 @@ export default function ContactMe({ dict }: { dict: DictType }) {
             href="/resume_PL.pdf"
             target="_blank"
             rel="noopener"
+            aria-label="Download CV (Polskie)"
           >
             <span>{dict.contact.download}</span>{" "}
             <BiDownload className="text-accent text-md" />
@@ -79,6 +80,7 @@ export default function ContactMe({ dict }: { dict: DictType }) {
             href="/resume_ENG.pdf"
             target="_blank"
             rel="noopener"
+            aria-label="Download Resume (English)"
           >
             <span>{dict.contact.download}</span>{" "}
             <BiDownload className="text-accent text-md" />
@@ -95,16 +97,25 @@ export default function ContactMe({ dict }: { dict: DictType }) {
               <span>{EMAIL}</span>
             </a>
             <button
+              aria-label="Copy email to clipboard"
               onClick={handleCopy}
               className="button-transparent accent p-3"
             >
-              {copied ? <GiCheckMark className="fill-green-600" /> : <BiCopy />}
+              {copied ? (
+                <GiCheckMark
+                  aria-label="email successfully copied"
+                  className="fill-green-600"
+                />
+              ) : (
+                <BiCopy aria-label="copy email icon" />
+              )}
             </button>
           </div>
         </div>
         <div className="flex gap-4 mediaQuery">
           <h5>LinkedIn:</h5>
           <Link
+            aria-label={(dict.contact.linkedinBtn, " button")}
             className="button-transparent px-4 py-3 flex items-center gap-2"
             href="https://www.linkedin.com/in/micha%C5%82-silski-093a1b278/"
             target="_blank"
@@ -118,6 +129,7 @@ export default function ContactMe({ dict }: { dict: DictType }) {
 
       <div className="flex justify-center">
         <button
+          aria-haspopup="true"
           className="button-transparent m-2 p-6 sm:p-4 sm:px-5 md:p-6"
           id="contact-btn"
           onClick={() => setModalOpen(true)}

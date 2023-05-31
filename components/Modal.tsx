@@ -132,6 +132,7 @@ function ContactForm({
         </span>
       </h2>
       <button
+        aria-label="Close Modal"
         className="hover:brightness-125 text-accent bg-white/10 border-slate-300/20 dark:bg-slate-800/20 border dark:border-slate-700 fixed top-0 right-0 rounded-md p-2 m-4"
         onClick={() => handleClose()}
       >

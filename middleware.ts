@@ -35,14 +35,6 @@ export function middleware(request: NextRequest) {
       new URL(`/${locale}/${pathname}`, request.url)
     );
   }
-
-  const response = new NextResponse();
-
-  if (request.headers.get("theme") === "bright") {
-    response.headers.set("theme", "bright");
-  } else {
-    response.headers.set("theme", "dark");
-  }
 }
 
 export const config = {
