@@ -28,7 +28,12 @@ export async function POST(req: NextRequest) {
       user: mojEmail,
       pass: process.env.EMAIL_PASS,
     },
+    tls: {
+      rejectUnauthorized: false,
+    },
   });
+
+  transporter.set("host", "smtp.office365.com");
 
   if (mojEmail === undefined || process.env.EMAIL_PASS === undefined) {
     return NextResponse.json(
@@ -37,7 +42,7 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  try {
+  async function sendEmail(transporter: any) {
     let newEmail = await transporter.sendMail({
       from: `${mojEmail}`, // sender address
       to: `${mojEmail}`, // list of receivers
@@ -49,6 +54,11 @@ export async function POST(req: NextRequest) {
       `,
     });
     console.log("Message Sent");
+    return true;
+  }
+
+  try {
+    await sendEmail(transporter);
 
     return NextResponse.json(
       { success: true, message: "Wysłano Email!" },
@@ -56,10 +66,14 @@ export async function POST(req: NextRequest) {
     );
   } catch (error) {
     return NextResponse.json(
-      { success: false, message: { error } },
+      {
+        success: false,
+        message: error,
+      },
       { status: 500 }
     );
   }
+
   return NextResponse.json(
     { success: false, message: "Wystąpił niespodziewany błąd" },
     { status: 500 }

@@ -3,6 +3,7 @@ import Image from "next/image";
 import TimeLine from "./TimeLine";
 import profilePic from "../public/photo.jpg";
 import { DictType } from "@/dictionaries/dictionaries";
+import Script from "next/script";
 
 export default function Header({ dict }: { dict: DictType }) {
   return (
@@ -12,8 +13,9 @@ export default function Header({ dict }: { dict: DictType }) {
           <div className="aspect-square max-h-[45vh] min-h-[150px] w-full max-w-[265px] animate-pulse overflow-hidden rounded-full sm:aspect-[6/7] lg:max-w-[281px] xl:max-w-[333px]"></div>
         }
       >
-        <div className="shadow-img aspect-square max-h-[45vh] min-h-[150px] w-full max-w-[265px] overflow-hidden rounded-full sm:aspect-[6/7] lg:max-w-[281px] xl:max-w-[333px]">
+        <div className="aspect-square max-h-[45vh] min-h-[150px] w-full max-w-[265px] overflow-hidden rounded-full sm:aspect-[6/7] lg:max-w-[281px] xl:max-w-[333px]">
           <Image
+            id="profilePic"
             className="object-cover"
             priority={true}
             src={profilePic}
@@ -31,6 +33,11 @@ export default function Header({ dict }: { dict: DictType }) {
       </div>
 
       <TimeLine dict={dict} />
+      <Script id="generate-shadow">
+        {`
+        document.getElementById("profilePic").parentElement.classList.add("shadow-img");
+        `}
+      </Script>
     </div>
   );
 }

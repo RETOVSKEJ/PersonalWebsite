@@ -9,15 +9,13 @@ type FormData = {
   message: string;
 };
 
-export default function Modal({
-  handleClose,
-  setStatus,
-  dict,
-}: {
+type modalPropsType = {
   handleClose: Function;
   setStatus: Function;
   dict: DictType;
-}) {
+};
+
+export default function Modal(modalProps: modalPropsType) {
   const dropIn = {
     hidden: { y: "-100vh", opacity: 0 },
     visible: {
@@ -40,7 +38,7 @@ export default function Modal({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      onPointerDown={() => handleClose()}
+      onPointerDown={() => modalProps.handleClose()}
     >
       <motion.div
         id="modal"
@@ -59,11 +57,7 @@ export default function Modal({
         animate="visible"
         exit="exit"
       >
-        <ContactForm
-          dict={dict}
-          handleClose={handleClose}
-          setStatus={setStatus}
-        />
+        <ContactForm {...modalProps} />
       </motion.div>
     </motion.div>
   );
@@ -75,15 +69,7 @@ const formInitialDetails: FormData = {
   message: "",
 };
 
-function ContactForm({
-  handleClose,
-  setStatus,
-  dict,
-}: {
-  handleClose: Function;
-  setStatus: Function;
-  dict: DictType;
-}) {
+function ContactForm({ handleClose, setStatus, dict }: modalPropsType) {
   const [formDetails, setFormDetails] = useState<FormData>(formInitialDetails);
   const [isLoading, setIsLoading] = useState(false);
 
