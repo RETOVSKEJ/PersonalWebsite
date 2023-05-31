@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-
 import { i18n } from "./dictionaries/i18n-config";
-
 import { match as matchLocale } from "@formatjs/intl-localematcher";
 import Negotiator from "negotiator";
 
@@ -21,17 +19,6 @@ function getLocale(request: NextRequest): string | undefined {
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
-  // // `/_next/` and `/api/` are ignored by the watcher, but we need to ignore files in `public` manually.
-  // // If you have one
-  // if (
-  //   [
-  //     '/manifest.json',
-  //     '/favicon.ico',
-  //     // Your other files in `public`
-  //   ].includes(pathname)
-  // )
-  //   return
-
   // Check if there is any supported locale in the pathname
   const pathnameIsMissingLocale = i18n.locales.every(
     (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
@@ -43,13 +30,24 @@ export function middleware(request: NextRequest) {
 
     // e.g. incoming request is /products
     // The new URL is now /en-US/products
+
     return NextResponse.redirect(
       new URL(`/${locale}/${pathname}`, request.url)
     );
   }
+
+  const response = new NextResponse();
+
+  if (request.headers.get("theme") === "bright") {
+    response.headers.set("theme", "bright");
+  } else {
+    response.headers.set("theme", "dark");
+  }
 }
 
 export const config = {
-  // Matcher ignoring `/_next/` and `/api/`
-  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
+  // Matcher ignoring `/_next/` and `/api/`,  but we need to ignore files in `public` manually.
+  matcher: [
+    "/((?!api|_next/static|_next/image|favicon.ico|resume_ENG.pdf|resume_PL.pdf).*)",
+  ],
 };

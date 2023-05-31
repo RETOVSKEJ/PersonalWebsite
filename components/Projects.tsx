@@ -23,6 +23,7 @@ export default function Projects({ dict }: { dict: DictType }) {
           "PostgreSQL",
           "Puppeteer",
         ]}
+        alt={dict.accessibility.taniezarcieAlt}
         link={"https://www.taniezarcie.vercel.app/"}
       />
       <Project
@@ -41,6 +42,7 @@ export default function Projects({ dict }: { dict: DictType }) {
           "Passport",
           "Multer",
         ]}
+        alt={dict.accessibility.fragfeedAlt}
         link={"https://fragfeed.lm.r.appspot.com/"}
       />
       <Project
@@ -56,7 +58,8 @@ export default function Projects({ dict }: { dict: DictType }) {
           "Framer-motion",
           "Nodemailer",
         ]}
-        link={"localhost:3000"}
+        alt={dict.accessibility.portfolioAlt}
+        link={"/"}
       />
     </div>
   );
@@ -69,6 +72,7 @@ type projectProps = {
   image: StaticImageData;
   technologies: string[];
   link: string;
+  alt: string;
 };
 
 export function Project({
@@ -78,13 +82,14 @@ export function Project({
   image,
   technologies,
   link,
+  alt,
 }: projectProps) {
   return (
     <Link
       className="transition-opacity duration-200"
       href={link}
-      target="_blank"
       rel="noopener"
+      target="_blank"
     >
       <div className="flex gap-4 p-0 py-1 md:p-4 border border-transparent rounded-lg [&:hover>div>h5]:text-accent group  hover:border-slate-400/20 hover:bg-white/20 dark:hover:border-slate-700/30 dark:hover:bg-slate-700/30 hover:shadow-lg">
         <div className="pt-[5px] w-[34%]">
@@ -93,7 +98,7 @@ export function Project({
             width={250}
             height={200}
             src={image}
-            alt={name}
+            alt={alt}
           />
         </div>
         <div className="w-[66%] flex flex-col gap-2">

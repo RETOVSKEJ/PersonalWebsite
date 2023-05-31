@@ -1,4 +1,10 @@
 {
+  "accessibility": {
+    "pictureAlt": "Picture depicting me",
+    "taniezarcieAlt": "Illustrative picture of the TanieZarcie application",
+    "fragfeedAlt": "Illustrative picture of the FragFeed application",
+    "portfolioAlt": "Illustrative picture of my portfolio website"
+  },
   "timeline": {
     "about": "About",
     "projects": "Projects",

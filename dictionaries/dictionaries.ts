@@ -8,6 +8,12 @@ const dictionaries = {
 
 export const getDictionary = async (locale: Locale) => dictionaries[locale]();
 export type DictType = {
+  accessibility: {
+    pictureAlt: string;
+    taniezarcieAlt: string;
+    fragfeedAlt: string;
+    portfolioAlt: string;
+  };
   timeline: {
     about: string;
     projects: string;

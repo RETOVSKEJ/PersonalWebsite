@@ -1,29 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const useLocalStorage = (key: string, initialValue?: string | Function) => {
-  const [storedValue, setStoredValue] = useState(() => {
-    try {
-      const item = window.localStorage.getItem(key);
-      return item ? JSON.parse(item) : initialValue;
-    } catch (error) {
-      console.log(error);
-      return initialValue;
-    }
-  });
+function getSavedValue(key: string, initialValue: string | Function) {
+  if (typeof window === "undefined") return initialValue; // dla ssr
+  const savedValue = JSON.parse(localStorage.getItem(key)!);
+  if (savedValue) return savedValue;
 
-  const setValue = (value: string | Function) => {
-    try {
-      const valueToStore =
-        value instanceof Function ? value(storedValue) : value;
+  if (initialValue instanceof Function) return initialValue(); // obliczanie expression, jesli uzytkownik poda zamiast gotowego wyniku
+  return initialValue;
+}
 
-      setStoredValue(valueToStore);
+export default function useLocalStorage(
+  key: string,
+  initialValue: string | Function
+) {
+  const [value, setValue] = useState(() => getSavedValue(key, initialValue));
 
-      window.localStorage.setItem(key, JSON.stringify(valueToStore));
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  return [storedValue, setValue];
-};
-
-export default useLocalStorage;
+  useEffect(() => {
+    localStorage.setItem(key, JSON.stringify(value));
+  }, [value]);
+  return [value, setValue];
+}

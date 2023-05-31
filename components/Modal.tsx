@@ -44,7 +44,7 @@ export default function Modal({
     >
       <motion.div
         id="modal"
-        className="modal cursor-grab bg-primary/50 backdrop-blur-sm shadow-xl border-all fixed z-50 inset-0 h-fit m-auto p-4 sm:p-6 w-[93%] md:p-8 md:w-4/5 lg:w-2/3 rounded-3xl"
+        className="modal cursor-grab bg-orange-100/50 dark:bg-primary/50 backdrop-blur-sm shadow-xl border border-slate-400/40 dark:border-slate-800 fixed z-50 inset-0 h-fit m-auto p-4 sm:p-6 w-[93%] md:p-8 md:w-4/5 lg:w-2/3 rounded-3xl"
         drag
         dragConstraints={{
           top: -225,
@@ -132,7 +132,7 @@ function ContactForm({
         </span>
       </h2>
       <button
-        className="text-accent bg-white/20 border-slate-300/50 dark:bg-slate-800/20 border dark:border-slate-700 fixed top-0 right-0 rounded-md p-2 m-4"
+        className="hover:brightness-125 text-accent bg-white/10 border-slate-300/20 dark:bg-slate-800/20 border dark:border-slate-700 fixed top-0 right-0 rounded-md p-2 m-4"
         onClick={() => handleClose()}
       >
         <AiOutlineClose />
@@ -181,7 +181,7 @@ function ContactForm({
             required
           ></textarea>
           <div className="rounded-tl-lg rounded-br-md  absolute bottom-0 right-0 m-4 bg-transparent">
-            <button className="button shadow-md dark:border dark:border-slate-700/80 dark:bg-primary/30 flexCenter gap-1">
+            <button className="button bg-primary/50 shadow-md dark:border dark:border-slate-700/80 dark:bg-primary/30 flexCenter gap-1">
               <AiOutlineSend />
               {isLoading ? dict.modal.btnSending : dict.modal.btn}
             </button>

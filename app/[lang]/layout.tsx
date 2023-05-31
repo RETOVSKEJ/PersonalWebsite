@@ -1,16 +1,28 @@
 import "@/app/globals.css";
 import { Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
-import ThemePicker from "@/components/ThemePicker";
-import LanguagePicker from "@/components/LanguagePicker";
-import { i18n } from "@/dictionaries/i18n-config";
+import { i18n, Locale } from "@/dictionaries/i18n-config";
+import { Suspense } from "react";
+import Loading from "@/app/loading";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata = {
-  title: "Michał Silski",
-  description: "Personal website of Michał Silski",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: { lang: Locale };
+}) {
+  if (params.lang === "pl")
+    return {
+      title: "Michał Silski",
+      description: "Prywatna strona-portfolio Michała Silskiego",
+    };
+
+  return {
+    title: "Michał Silski",
+    description: "Personal website of Michał Silski",
+  };
+}
 
 export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ lang: locale }));
@@ -21,14 +33,14 @@ export default function RootLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: { lang: string };
+  params: { lang: Locale };
 }) {
   return (
     <html lang={params.lang}>
       <body
-        className={`${inter.className}  scroll-smooth border-box selection:bg-accent selection:text-slate-600`}
+        className={`${inter.className} overflow-x-hidden  scroll-smooth border-box selection:bg-accent selection:text-slate-600`}
       >
-        <Navbar />
+        <Navbar lang={params.lang} />
         {children}
       </body>
     </html>

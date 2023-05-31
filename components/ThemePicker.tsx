@@ -1,13 +1,19 @@
 "use client";
 
 import { FaSun, FaMoon } from "react-icons/fa";
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import useDarkMode from "@/hooks/useDarkMode";
 
 export default function ThemePicker() {
   const [darkTheme, setDarkTheme] = useDarkMode("true");
+  const [loaded, setLoaded] = useState(true);
   const btnRef = useRef<HTMLButtonElement>(null);
   const PRIMARY = "#0F172A";
+
+  // localstorage is not available (in userDarkMode) until mounted
+  useEffect(() => {
+    setDarkTheme(localStorage.getItem("dark-theme") === "true");
+  }, [loaded]);
 
   useEffect(() => {
     document.body.style.backgroundColor = PRIMARY;
@@ -61,7 +67,7 @@ export default function ThemePicker() {
       ref={btnRef}
       onClick={handleMode}
     >
-      {darkTheme === true ? <FaSun size="24" /> : <FaMoon size="24" />}
+      {darkTheme ? <FaSun size="24" /> : <FaMoon size="24" />}
     </button>
   );
 }

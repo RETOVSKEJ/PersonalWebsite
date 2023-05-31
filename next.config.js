@@ -32,7 +32,13 @@ const nextConfig = {
     return [
       {
         source: "/:path*",
-        headers: securityHeaders,
+        headers: [
+          ...securityHeaders,
+          {
+            key: "theme",
+            value: "dark",
+          },
+        ],
       },
     ];
   },

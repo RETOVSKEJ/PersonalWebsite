@@ -14,12 +14,12 @@ export default async function Home({
   const dict = await getDictionary(lang);
 
   return (
-    <main className="grid sm:grid-cols-[250px_1fr] lg:grid-cols-2 relative my-20 w-[95%] sm:w-full lg:w-[82%] sm:pl-10 sm:pr-7 lg:p-0 xl:w-[1200px] m-auto gap-16">
+    <main className="relative grid m-auto gap-16 sm:gap-12 sm:grid-cols-[250px_1fr]  lg:grid-cols-[290px_1fr] lg:gap-14 xl:grid-cols-2  my-20 w-[95%] sm:w-full lg:w-[82%] sm:pl-10 sm:pr-7 lg:p-0 xl:w-[1200px]">
       <div className="max-w-4xl sm:h-[calc(100vh-160px)] flex flex-col justify-between sm:sticky top-20 gap-8 self-start">
         <Header dict={dict} />
         <Socials />
       </div>
-      <div className=" scroll-smooth flex flex-col sm:overflow-x-hidden gap-16">
+      <div className="scroll-smooth flex flex-col  gap-16 sm:pl-[17px]">
         <AboutMe dict={dict}>
           <Text lang={lang} />
         </AboutMe>

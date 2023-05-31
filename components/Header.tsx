@@ -1,4 +1,4 @@
-import React from "react";
+import { Suspense } from "react";
 import Image from "next/image";
 import TimeLine from "./TimeLine";
 import profilePic from "../public/photo.jpg";
@@ -7,12 +7,12 @@ import { DictType } from "@/dictionaries/dictionaries";
 export default function Header({ dict }: { dict: DictType }) {
   return (
     <div className="select-none flex flex-col gap-6 items-center sm:items-stretch relative">
-      <div className="overflow-hidden shadow-img aspect-square max-w-[270px] w-full sm:aspect-[6/7] sm:max-w-[333px] min-h-[150px] max-h-[45vh] rounded-full">
+      <div className="overflow-hidden shadow-img aspect-square max-w-[265px] w-full sm:aspect-[6/7] lg:max-w-[281px] xl:max-w-[333px] min-h-[150px] max-h-[45vh] rounded-full">
         <Image
           className="object-cover"
           priority={true}
           src={profilePic}
-          alt="Moje Zdjęcie"
+          alt={dict.accessibility.pictureAlt}
         />
       </div>
       <div>
@@ -23,6 +23,7 @@ export default function Header({ dict }: { dict: DictType }) {
           Fullstack Web Developer
         </p>
       </div>
+
       <TimeLine dict={dict} />
     </div>
   );

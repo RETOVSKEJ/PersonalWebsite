@@ -1,4 +1,10 @@
 {
+  "accessibility": {
+    "pictureAlt": "Zdjęcie przedstawiające mnie",
+    "taniezarcieAlt": "Zdjęcie poglądowe aplikacji TanieZarcie",
+    "fragfeedAlt": "Zdjęcie poglądowe aplikacji FragFeed",
+    "portfolioAlt": "Zdjęcie poglądowe mojej strony portfolio"
+  },
   "timeline": {
     "about": "O mnie",
     "projects": "Projekty",

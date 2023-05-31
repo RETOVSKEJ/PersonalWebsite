@@ -1,4 +1,4 @@
-import { Didact_Gothic, Italianno } from "next/font/google";
+import { Italianno } from "next/font/google";
 import { DictType } from "@/dictionaries/dictionaries";
 
 const dancingFont = Italianno({
