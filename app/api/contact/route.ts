@@ -21,19 +21,16 @@ export async function POST(req: NextRequest) {
     pool: true,
     maxConnections: 4,
     maxMessages: 10,
-    host: "smtp-mail.outlook.com", // host hotmaila, smtp.live.com nie działa
-    port: 587, // port hotmaila
-    secure: false, // true for 465, false for other ports
+    host: "smtp.wp.pl", // host wp
+    port: 465, // port wp
+    secure: true, // true for 465, false for other ports
     auth: {
       user: mojEmail,
       pass: process.env.EMAIL_PASS,
     },
-    tls: {
-      rejectUnauthorized: false,
-    },
   });
 
-  transporter.set("host", "smtp.office365.com");
+  // transporter.set("host", "smtp.office365.com");
 
   if (mojEmail === undefined || process.env.EMAIL_PASS === undefined) {
     return NextResponse.json(

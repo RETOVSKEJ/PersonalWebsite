@@ -17,7 +17,7 @@ type StatusEmail = {
   message: string;
 };
 
-const EMAIL = process.env.EMAIL;
+const EMAIL = "michal.silski@hotmail.com";
 const statusInitialDetails: StatusEmail = {
   success: false,
   message: "",

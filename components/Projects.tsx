@@ -24,7 +24,7 @@ export default function Projects({ dict }: { dict: DictType }) {
           "Puppeteer",
         ]}
         alt={dict.accessibility.taniezarcieAlt}
-        link={" https://taniezarcie-retovskej.vercel.app/"}
+        link={"https://taniezarcie.vercel.app/"}
       />
       <Project
         name={"FragFeed"}
