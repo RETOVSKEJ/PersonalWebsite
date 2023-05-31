@@ -21,7 +21,7 @@ export async function POST(req: NextRequest) {
     pool: true,
     maxConnections: 4,
     maxMessages: 10,
-    host: "smtp-mail.outlook.com", // host hotmaila, smpt.live.com nie działa
+    host: "smtp-mail.outlook.com", // host hotmaila, smtp.live.com nie działa
     port: 587, // port hotmaila
     secure: false, // true for 465, false for other ports
     auth: {
@@ -55,7 +55,10 @@ export async function POST(req: NextRequest) {
       { status: 201 }
     );
   } catch (error) {
-    console.error(error);
+    return NextResponse.json(
+      { success: false, message: { error } },
+      { status: 500 }
+    );
   }
   return NextResponse.json(
     { success: false, message: "Wystąpił niespodziewany błąd" },
