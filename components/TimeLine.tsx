@@ -57,7 +57,7 @@ export default function TimeLine({ dict }: { dict: DictType }) {
       let delay = 0;
       entries.forEach((entry: any) => {
         it += 1;
-        it == 1 ? (delay = 0) : (delay = 0.3);
+        it == 1 ? (delay = 0) : (delay = 0.34);
         if (entry.isIntersecting) {
           entry.target.classList.add("show");
           entry.target.style.transitionDelay = `${delay}s`;

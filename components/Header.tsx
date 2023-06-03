@@ -33,9 +33,9 @@ export default function Header({ dict }: { dict: DictType }) {
       </div>
 
       <TimeLine dict={dict} />
-      <Script id="generate-shadow">
+      <Script>
         {`
-        document.getElementById("profilePic").parentElement.classList.add("shadow-img");
+          document.getElementById("profilePic").parentElement.classList.add("shadow-img");
         `}
       </Script>
     </div>

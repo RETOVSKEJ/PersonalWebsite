@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import Navbar from "@/components/Navbar";
 import AboutMe from "@/components/AboutMe";
 import ContactMe from "@/components/ContactMe";
 import Projects from "@/components/Projects";
@@ -14,28 +15,31 @@ export default async function Home({
   const dict = await getDictionary(lang);
 
   return (
-    <main className="relative grid m-auto gap-16 sm:gap-12 sm:grid-cols-[250px_1fr]  lg:grid-cols-[290px_1fr] lg:gap-14 xl:grid-cols-2  my-20 w-[95%] sm:w-full lg:w-[82%] sm:pl-10 sm:pr-7 lg:p-0 xl:w-[1200px]">
-      <div className="max-w-4xl sm:h-[calc(100vh-160px)] flex flex-col justify-between sm:sticky top-20 gap-8 self-start">
-        <Header dict={dict} />
-        <Socials />
-      </div>
-      <div className="scroll-smooth flex flex-col  gap-16 sm:pl-[17px]">
-        <AboutMe dict={dict}>
-          <Text lang={lang} />
-        </AboutMe>
-        <div id="projects" className="hide">
-          <h2 className="text-2xl sm:text-3xl  text-center mb-6">
-            {dict.projects.title}
-            <span className="text-2xl sm:text-3xl text-accent">
-              {" "}
-              {dict.projects.titlespan}
-            </span>
-          </h2>
-          <Projects dict={dict} />
+    <>
+      <Navbar lang={lang} />
+      <main className="relative m-auto my-20 grid w-[95%] gap-16  sm:w-full sm:grid-cols-[250px_1fr] sm:gap-12  sm:pl-10 sm:pr-7 lg:w-[82%] lg:grid-cols-[290px_1fr] lg:gap-14 lg:p-0 xl:w-[1200px] xl:grid-cols-2">
+        <div className="top-20 flex max-w-4xl flex-col justify-between gap-8 self-start sm:sticky sm:h-[calc(100vh-160px)]">
+          <Header dict={dict} />
+          <Socials />
         </div>
-        <ContactMe dict={dict} />
-      </div>
-    </main>
+        <div className="flex flex-col gap-16  scroll-smooth sm:pl-[17px] xl:pl-[0px]">
+          <AboutMe dict={dict}>
+            <Text lang={lang} />
+          </AboutMe>
+          <div id="projects" className="hide">
+            <h2 className="mb-6 text-center  text-2xl sm:text-3xl">
+              {dict.projects.title}
+              <span className="text-2xl text-accent sm:text-3xl">
+                {" "}
+                {dict.projects.titlespan}
+              </span>
+            </h2>
+            <Projects dict={dict} />
+          </div>
+          <ContactMe dict={dict} />
+        </div>
+      </main>
+    </>
   );
 }
 

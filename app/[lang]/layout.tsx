@@ -1,9 +1,5 @@
 import "@/app/globals.css";
-import { Inter } from "next/font/google";
-import Navbar from "@/components/Navbar";
 import { i18n, Locale } from "@/dictionaries/i18n-config";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export async function generateMetadata({
   params,
@@ -33,14 +29,5 @@ export default function RootLayout({
   children: React.ReactNode;
   params: { lang: Locale };
 }) {
-  return (
-    <html lang={params.lang}>
-      <body
-        className={`${inter.className} border-box  overflow-x-hidden scroll-smooth selection:bg-accent selection:text-slate-600`}
-      >
-        <Navbar lang={params.lang} />
-        {children}
-      </body>
-    </html>
-  );
+  return <html lang={params.lang}>{children}</html>;
 }

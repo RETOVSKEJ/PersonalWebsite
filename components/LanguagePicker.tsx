@@ -9,16 +9,16 @@ export default function LanguagePicker({ lang }: { lang: Locale }) {
   const inputRef = useRef<HTMLInputElement>(null);
 
   return (
-    <div className="flex relative flex-col">
+    <div className="relative flex flex-col">
       <label
+        className="cursor-pointer"
+        htmlFor="language-checkbox"
         tabIndex={0}
         aria-label="Change language"
         id="label-language"
         onKeyUp={(e) => {
           e.key === "Enter" ? setChecked((prev) => !prev) : null;
         }}
-        className="cursor-pointer"
-        htmlFor="language-checkbox"
       >
         {lang === "en" ? <Gb fontSize={24} /> : <Pl fontSize={24} />}
       </label>
@@ -33,7 +33,7 @@ export default function LanguagePicker({ lang }: { lang: Locale }) {
         <div
           aria-expanded={checked}
           id="dropdown"
-          className="button-transparent -translate-x-1/4 hover:brightness-100 dark:hover:brightness-100 p-3 py-2.5 absolute top-[135%] flex justify-between gap-1.5 flex-col"
+          className="button-transparent absolute top-[135%] flex -translate-x-1/4 flex-col justify-between gap-1.5 p-3 py-2.5 hover:brightness-100 dark:hover:brightness-100"
         >
           <Link
             href="/pl"
