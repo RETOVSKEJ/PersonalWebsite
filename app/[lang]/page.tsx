@@ -17,7 +17,7 @@ export default async function Home({
   return (
     <>
       <Navbar lang={lang} />
-      <main className="relative m-auto my-20 grid w-[95%] gap-16  sm:w-full sm:grid-cols-[250px_1fr] sm:gap-12  sm:pl-10 sm:pr-7 lg:w-[82%] lg:grid-cols-[290px_1fr] lg:gap-14 lg:p-0 xl:w-[1200px] xl:grid-cols-2">
+      <main className=" relative m-auto my-[4.25rem] grid w-[95%] gap-16 overflow-x-hidden pt-3 sm:w-full sm:grid-cols-[250px_1fr] sm:gap-12 sm:pl-10  sm:pr-7 md:overflow-x-visible lg:w-[82%] lg:grid-cols-[290px_1fr] lg:gap-14 lg:p-0 xl:w-[1200px] xl:grid-cols-2">
         <div className="top-20 flex max-w-4xl flex-col justify-between gap-8 self-start sm:sticky sm:h-[calc(100vh-160px)]">
           <Header dict={dict} />
           <Socials />
@@ -53,8 +53,8 @@ function Text({ lang }: { lang: Locale }) {
       zobaczyłem, że umiejetność programowania to niesamowita{" "}
       <strong>siła</strong> - praktycznie nic nas tutaj nie ogranicza. <br />
       <br />
-      Lubię <strong>tworzyć</strong> - zwłaszcza gdy może to pomagać ludziom.
-      Oceniłbym siebie jako poszukiwacza-perfekcjonistę bo w każdej sytuacji w
+      Lubię <strong>tworzyć</strong> - zwłaszcza, gdy może to pomagać ludziom.
+      Oceniłbym siebie jako poszukiwacza-perfekcjonistę, bo z każdej sytuacji w
       której się znajdę, staram się wyciągnąć wszystko co do ostatniego ziarnka.
       Pracę traktuję jako szansę na rozwój, a ten jest według mnie czymś
       niezbędnym w życiu.

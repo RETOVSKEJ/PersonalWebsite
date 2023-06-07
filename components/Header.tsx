@@ -17,7 +17,9 @@ export default function Header({ dict }: { dict: DictType }) {
           <Image
             id="profilePic"
             className="object-cover"
-            priority={true}
+            priority
+            width={333}
+            height={500}
             src={profilePic}
             alt={dict.accessibility.pictureAlt}
           />
