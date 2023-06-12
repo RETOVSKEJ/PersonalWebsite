@@ -32,15 +32,16 @@ export default function Projects({ dict }: { dict: DictType }) {
         desc={dict.projects.fragfeed}
         image={FragFeed}
         technologies={[
-          "Vanilla JS",
+          "Vanilla JS & EJS",
           "Node.js",
           "Express",
-          "EJS",
           "SCSS",
           "Mongoose",
           "MongoDB",
           "Passport",
           "Multer",
+          "AWS S3",
+          "GCP",
         ]}
         alt={dict.accessibility.fragfeedAlt}
         link={"https://fragfeed.lm.r.appspot.com/"}
