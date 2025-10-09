@@ -47,7 +47,7 @@ function Text({ lang }: { lang: Locale }) {
   const textPl = (
     <>
       {" "}
-      Jestem <strong>studentem</strong> informatyki a w przeszłości miałem
+      Jestem <strong>inżynierem informatyki</strong> a w przeszłości miałem
       przyjemność być profesjonalnym graczem oraz reprezentować różne
       organizacje na wielu zawodach w całym kraju. Zmieniłem profesję, bo
       zobaczyłem, że umiejetność programowania to niesamowita{" "}
@@ -61,32 +61,32 @@ function Text({ lang }: { lang: Locale }) {
       <br />
       <br />
       Obecnie rozbudowuje aplikacje w oparciu o technologie{" "}
-      <strong>Next.js</strong> oraz <strong>TailwindCss</strong>. W najbliższej
-      przyszłości planuję poszerzyć swoje horyzonty o projektowanie w{" "}
-      <strong>Figmie</strong>, pracę z WebSockets oraz naukę frameworka Svelte.
+      <strong>.NET</strong> oraz <strong>Vue & Nuxt</strong>. W najbliższej
+      przyszłości planuję poszerzyć swoje horyzonty w rozwiązaniach chmurowych
+      oraz poprawić swoje umiejętności projektowania w <strong>Figmie</strong>.
     </>
   );
   const textEng = (
     <>
-      I am a computer science <strong>student</strong> who had the pleasure of
+      I am a <strong>Computer Science Engineer</strong> who had the pleasure of
       being a professional gamer in the past, representing various organizations
-      in numerous competitions nationwide. I switched professions when I
-      realized that programming is an incredible <strong>power</strong> - there
-      are virtually no limits here.
+      in numerous competitions across the country. I changed my profession after
+      realizing that programming is an incredible <strong>power</strong> — there
+      are virtually no limits to what can be achieved here.
       <br />
       <br />I have a passion for <strong>creating</strong>, especially when it
       can make a positive difference in people's lives. I would describe myself
-      as an explorer-perfectionist; in every situation, I strive to extract
-      everything to the last grain. I see work as an opportunity for growth,
-      which I consider essential in life.
+      as an explorer-perfectionist — in every situation, I strive to extract as
+      much as possible and learn from every experience. I see work as an
+      opportunity for growth, which I consider essential in life.
       <br />
       <br />
-      Currently, I am expanding applications based on <strong>
-        Next.js
-      </strong>{" "}
-      and <strong>TailwindCSS</strong>. In the near future, I plan to broaden my
-      horizons by delving into <strong>Figma</strong> design, working with
-      WebSockets, and learning the Svelte framework.
+      Currently, I am developing applications based on <strong>
+        .NET
+      </strong> and <strong>Vue & Nuxt</strong>. In the near future, I plan to
+      broaden my horizons by learning more about{" "}
+      <strong>cloud solutions</strong> and improving my <strong>Figma</strong>{" "}
+      design skills.
     </>
   );
 
