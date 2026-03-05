@@ -1,7 +1,7 @@
 import { motion, useDragControls } from "framer-motion";
 import { AiOutlineSend, AiOutlineClose } from "react-icons/ai";
 import { FormEvent, useEffect, useTransition, useState } from "react";
-import { DictType } from "@/dictionaries/dictionaries";
+import type { DictType } from "@/dictionaries/dictionaries";
 
 type FormData = {
   name: string;

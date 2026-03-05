@@ -9,7 +9,7 @@ import FragFeed from "../public/fragfeed.png";
 import Portfolio from "../public/portfolio.png";
 
 import { FiArrowUpRight } from "react-icons/fi";
-import { DictType } from "@/dictionaries/dictionaries";
+import type { DictType } from "@/dictionaries/dictionaries";
 
 type ProjectProps = {
   name: string;

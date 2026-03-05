@@ -10,7 +10,7 @@ import { GiCheckMark } from "react-icons/gi";
 import { AiOutlineSend } from "react-icons/ai";
 import { FiArrowUpRight } from "react-icons/fi";
 import { useEffectAfterMount } from "@/hooks/useEffectAfterMount";
-import { DictType } from "@/dictionaries/dictionaries";
+import type { DictType } from "@/dictionaries/dictionaries";
 
 type StatusEmail = {
   success: boolean;

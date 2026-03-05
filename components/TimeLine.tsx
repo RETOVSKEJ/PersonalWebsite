@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
-import { DictType } from "@/dictionaries/dictionaries";
+import type { DictType } from "@/dictionaries/dictionaries";
 
 const CLASSES_TO_ADD =
   "text-accent [&>span]:bg-accent dark:text-slate-100 dark:[&>span]:bg-slate-100 [&>span]:w-16".split(
