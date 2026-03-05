@@ -1,5 +1,7 @@
 {
   "accessibility": {
+    "meetfinderAlt": "Screenshot of the MeetFinder app",
+    "ratemylookAlt": "Screenshot of the RateMyLook app",
     "pictureAlt": "Picture depicting me",
     "taniezarcieAlt": "Illustrative picture of the TanieZarcie application",
     "fragfeedAlt": "Illustrative picture of the FragFeed application",
@@ -19,7 +21,14 @@
     "titlespan": "Projects:",
     "taniezarcie": "Web-app for making people's lifes easier when it comes to picking the right food in McDonald. Compare all of the items from menu, see the ranks and just look at the sets inside of the beatiful carousel. Don't know what to order? Just draw your next food!",
     "fragfeed": "Web-site which make it easier to follow all of the dramas and events from the esport scene. Check all of the hottest feeds from last week, create an account, and share your own posts!",
-    "portfolio": "Personal Website to help people reach me out easier. Feel free to leave me a message here."
+    "portfolio": "Personal Website to help people reach me out easier. Feel free to leave me a message here.",
+    "meetfinder": "A real-life meetup app. Create events, join others nearby, and meet people offline — without an artificial feed.",
+    "ratemylook": "A social app for rating photos and competing on leaderboards. Scoring, rankings and analytics.",
+    "taniezarcieShort": "Compare McDonald’s sets (nutrition/price/rankings) or randomize your pick.",
+    "fragfeedShort": "Follow e-sports events and publish posts with an image after signing up.",
+    "portfolioShort": "My portfolio: short intro + contact.",
+    "olderTitle": "Older projects",
+    "olderHint": "(smaller / earlier work)"
   },
   "contact": {
     "title": "& Checkout my",

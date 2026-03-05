@@ -83,31 +83,32 @@ function ContactForm({ handleClose, setStatus, dict }: modalPropsType) {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
-    let response = await fetch("/api/contact", {
-      method: "POST",
-      headers: {
-        Host: window.location.host,
-        "Content-Type": "application/json;charset=utf-8",
-      },
-      body: JSON.stringify(formDetails),
-    });
-    let result = await response.json();
 
-    // reset form
-    if (result.success) {
-      setFormDetails(formInitialDetails);
-      handleClose();
-      setStatus({
-        success: true,
-        message: dict.toast.success,
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formDetails),
       });
-    } else {
-      setStatus({
-        success: false,
-        message: dict.toast.error,
-      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        setFormDetails(formInitialDetails);
+        handleClose();
+        setStatus({ success: true, message: dict.toast.success });
+      } else {
+        console.error("Contact error:", result);
+        setStatus({ success: false, message: dict.toast.error });
+      }
+    } catch (err) {
+      console.error("Contact exception:", err);
+      setStatus({ success: false, message: dict.toast.error });
+    } finally {
+      setIsLoading(false);
     }
-    setIsLoading(false);
   };
 
   return (
@@ -152,6 +153,11 @@ function ContactForm({ handleClose, setStatus, dict }: modalPropsType) {
             value={formDetails.email}
             onChange={(e) => onFormUpdate("email", e.target.value)}
           />
+          <input
+  type="text"
+  name="company"
+  style={{ display: "none" }}
+/>
         </motion.div>
         <motion.div
           className="relative cursor-default"

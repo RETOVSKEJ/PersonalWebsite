@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import Image from "next/image";
 import TimeLine from "./TimeLine";
-import profilePic from "../public/photo.jpg";
+import profilePic from "../public/photo.png";
 import { DictType } from "@/dictionaries/dictionaries";
 import Script from "next/script";
 

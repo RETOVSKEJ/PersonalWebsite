@@ -24,10 +24,6 @@ const securityHeaders = [
 ];
 
 const nextConfig = {
-  env: {
-    EMAIL: process.env.EMAIL,
-    EMAIL_PASS: process.env.EMAIL_PASS,
-  },
   async headers() {
     return [
       {

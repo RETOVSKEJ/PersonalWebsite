@@ -1,57 +1,20 @@
 import "server-only";
 import type { Locale } from "@/dictionaries/i18n-config";
 
-const dictionaries = {
-  en: () => import("./en.json").then((module) => module.default),
-  pl: () => import("./pl.json").then((module) => module.default),
+// ✅ 1) en.json = źródło prawdy dla typów
+import en from "./en.json";
+export type DictType = typeof en;
+
+// ✅ 2) pilnuj, żeby pl.json miał dokładnie te same klucze (compile-time)
+import pl from "./pl.json";
+const _plMustMatchEn: DictType = pl;
+
+// ✅ 3) runtime loader
+const dictionaries: Record<Locale, () => Promise<DictType>> = {
+  en: async () => (await import("./en.json")).default as DictType,
+  pl: async () => (await import("./pl.json")).default as DictType,
 };
 
-export const getDictionary = async (locale: Locale) => dictionaries[locale]();
-export type DictType = {
-  accessibility: {
-    pictureAlt: string;
-    taniezarcieAlt: string;
-    fragfeedAlt: string;
-    portfolioAlt: string;
-  };
-  timeline: {
-    about: string;
-    projects: string;
-    contact: string;
-  };
-  aboutMe: {
-    title: string;
-    text: string;
-  };
-  projects: {
-    title: string;
-    titlespan: string;
-    taniezarcie: string;
-    fragfeed: string;
-    portfolio: string;
-  };
-  contact: {
-    title: string;
-    titlespan1: string;
-    titlespan2: string;
-    cveng: string;
-    cvpl: string;
-    linkedinBtn: string;
-    btn: string;
-    download: string;
-  };
-  modal: {
-    title: string;
-    titlespan: string;
-    name: string;
-    email: string;
-    message: string;
-    btn: string;
-    btnSending: string;
-  };
-  toast: {
-    copied: string;
-    error: string;
-    success: string;
-  };
+export const getDictionary = async (locale: Locale): Promise<DictType> => {
+  return dictionaries[locale]();
 };

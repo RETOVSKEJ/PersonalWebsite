@@ -21,7 +21,7 @@ export default function AboutMe({
       >
         {dict.aboutMe.title}
       </figcaption>
-      <blockquote className="mx-auto w-[86%] whitespace-pre-line [&>strong]:text-base ">
+      <blockquote className="mx-auto w-[88%] whitespace-pre-line [&>strong]:text-base ">
         {children}
       </blockquote>
     </figure>

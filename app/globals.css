@@ -183,3 +183,46 @@ figcaption {
     transition: none;
   }
 }
+
+/* --- OlderProjects horizontal scrollbar (server-safe) --- */
+.older-scroll {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: rgba(148, 163, 184, 0.45) rgba(148, 163, 184, 0.12);
+}
+
+.older-scroll::-webkit-scrollbar {
+  height: 10px;
+}
+
+.older-scroll::-webkit-scrollbar-track {
+  background: rgba(148, 163, 184, 0.12);
+  border-radius: 999px;
+}
+
+.older-scroll::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.45);
+  border-radius: 999px;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+}
+
+.older-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.65);
+}
+
+/* dark mode (Tailwind class strategy: .dark na <html>) */
+.dark .older-scroll {
+  scrollbar-color: rgba(148, 163, 184, 0.4) rgba(30, 41, 59, 0.35);
+}
+
+.dark .older-scroll::-webkit-scrollbar-track {
+  background: rgba(30, 41, 59, 0.35);
+}
+
+.dark .older-scroll::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.4);
+  border: 2px solid rgba(15, 23, 42, 0.25);
+}
+
+.dark .older-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.6);
+}
