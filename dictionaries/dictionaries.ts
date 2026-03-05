@@ -1,20 +1,24 @@
 import "server-only";
 import type { Locale } from "@/dictionaries/i18n-config";
 
-// ✅ 1) en.json = źródło prawdy dla typów
 import en from "./en.json";
+import pl from "./pl.json";
+
 export type DictType = typeof en;
 
-// ✅ 2) pilnuj, żeby pl.json miał dokładnie te same klucze (compile-time)
-import pl from "./pl.json";
+// compile-time check: pl musi mieć tę samą strukturę co en
 const _plMustMatchEn: DictType = pl;
 
-// ✅ 3) runtime loader
-const dictionaries: Record<Locale, () => Promise<DictType>> = {
-  en: async () => (await import("./en.json")).default as DictType,
-  pl: async () => (await import("./pl.json")).default as DictType,
-};
+const dictionaries = {
+  en,
+  pl,
+} satisfies Record<Locale, DictType>;
 
 export const getDictionary = async (locale: Locale): Promise<DictType> => {
-  return dictionaries[locale]();
+  const dict = dictionaries[locale];
+
+  // guard (gdyby locale jednak wyszło poza union)
+  if (!dict) return dictionaries.en;
+
+  return dict;
 };

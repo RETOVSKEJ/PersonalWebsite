@@ -1,33 +1,44 @@
+import type { Locale } from "@/dictionaries/i18n-config";
+import { i18n } from "@/dictionaries/i18n-config";
+import { getDictionary } from "@/dictionaries/dictionaries";
+
 import Header from "@/components/Header";
 import Navbar from "@/components/Navbar";
 import AboutMe from "@/components/AboutMe";
 import ContactMe from "@/components/ContactMe";
 import Projects from "@/components/Projects";
 import Socials from "@/components/Socials";
-import { getDictionary } from "@/dictionaries/dictionaries";
-import { Locale } from "@/dictionaries/i18n-config";
+
+function isLocale(v: string): v is Locale {
+  return (i18n.locales as readonly string[]).includes(v);
+}
 
 export default async function Home({
-  params: { lang },
+  params,
 }: {
-  params: { lang: Locale };
+  params: Promise<{ lang: string }>;
 }) {
-  const dict = await getDictionary(lang);
+  const { lang } = await params;
+  const safeLang: Locale = isLocale(lang) ? lang : "en";
+
+  const dict = await getDictionary(safeLang);
 
   return (
     <>
-      <Navbar lang={lang} />
+      <Navbar lang={safeLang} />
       <main className=" relative m-auto my-[4.25rem] grid w-[95%] gap-16 overflow-x-hidden pt-3 sm:w-full sm:grid-cols-[250px_1fr] sm:gap-12 sm:pl-10  sm:pr-7 md:overflow-x-visible lg:w-[82%] lg:grid-cols-[290px_1fr] lg:gap-14 lg:p-0 xl:w-[1200px] xl:grid-cols-2">
         <div className="top-20 flex max-w-4xl flex-col justify-between gap-8 self-start sm:sticky sm:h-[calc(100vh-160px)]">
           <Header dict={dict} />
           <Socials />
         </div>
-        <div className="flex flex-col gap-16  scroll-smooth sm:pl-[17px] xl:pl-[0px]">
+
+        <div className="flex flex-col gap-16 scroll-smooth sm:pl-[17px] xl:pl-[0px]">
           <AboutMe dict={dict}>
-            <Text lang={lang} />
+            <Text lang={safeLang} />
           </AboutMe>
+
           <div id="projects" className="hide">
-            <h2 className="mb-6 text-center  text-2xl sm:text-3xl">
+            <h2 className="mb-6 text-center text-2xl sm:text-3xl">
               {dict.projects.title}
               <span className="text-2xl text-accent sm:text-3xl">
                 {" "}
@@ -36,12 +47,14 @@ export default async function Home({
             </h2>
             <Projects dict={dict} />
           </div>
+
           <ContactMe dict={dict} />
         </div>
       </main>
     </>
   );
 }
+
 
 function Text({ lang }: { lang: Locale }) {
   const textPl = (
